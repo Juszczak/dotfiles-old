@@ -1,0 +1,125 @@
+" ~/.vimr
+" Adrian Juszczak
+" (https://github.com/juszczak/dotfiles)
+
+set nocompatible
+filetype off
+
+" key bindings
+" F1 HELP
+" F2 Paste Mode Toggle
+" F3 NerdTree Toggle
+" F4 Gundo Toggle
+" F5 CoffeeWatch
+" F6 Relative Number Toggle
+" F7 Line wrapping toggle
+" F8 Search Ignore Case Toggle
+" F9 Incremental Search Toggle
+" F10 Autoformat
+
+
+" space as colon
+nmap <space> :
+
+" escape with jj
+imap jj <esc>
+
+" quick search
+nmap <space><space> /
+
+" easier window navigation with hjkl
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" chrome-like tab switching
+nmap <D-1> 1gt
+nmap <D-2> 2gt
+nmap <D-3> 3gt
+nmap <D-4> 4gt
+nmap <D-5> 5gt
+nmap <D-6> 6gt
+nmap <D-7> 7gt
+nmap <D-8> 8gt
+nmap <D-9> 9gt
+
+nmap <D-§> gT
+nmap <D-0> gt
+
+nmap <F2> :set invpaste paste?<CR>
+
+" toggle NERDTree
+nmap <F3> :NERDTreeTabsToggle<cr>
+
+" toggle relative numbers
+nmap <F6> :set relativenumber! relativenumber?<Cr>
+
+" toggle lines wrapping
+map <F7> :set wrap! nowrap?<CR>
+
+" toggle case  sensitive/insensitive search
+nmap <F8> :set ignorecase! ignorecase?<Cr>
+
+" toggle incremental search
+nmap <F9> :set incsearch! incsearch?<CR>
+
+" allow saving of files as sudo when forgot to start vim using sudo
+cmap w!! w !sudo tee > /dev/null %
+
+" set syntax highlighting on
+syntax on
+
+set pastetoggle=<F2>
+
+set incsearch
+
+set ignorecase
+
+" highlight all matching search patterns
+" set hlsearch!
+
+" ignore case if search pattern is all lowercase
+set smartcase
+
+" write the old file out when switching between files
+set autowrite
+
+" show matching brackets
+set showmatch
+
+" enable mouse in all modes
+set mouse=a
+
+" hide mouse pointer when characters are typed
+set mousehide
+
+" sane backspace
+set backspace=indent,eol,start
+
+" indent settings
+set shiftwidth=2
+set tabstop=2
+set expandtab
+
+" line numbers
+set number
+
+" relative numbers by default
+set relativenumber
+
+" no annoying ~ files
+set nobackup
+set nowritebackup
+set noswapfile
+
+" set clipboard at mac
+" set clipboard=unnamed
+
+" hide scrollbar in MacVim
+set guioptions-=r
+set guioptions-=L
+
+" wtf?
+set noeb vb t_vb=
+set vb t_vb=
