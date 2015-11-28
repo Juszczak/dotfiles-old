@@ -1,7 +1,24 @@
-set completion-ignore-case on
+# ~/.inputrc
+# Adrian Juszczk (https://github.com/juszczak/dotfiles)
 
+# completion options
+set completion-ignore-case on
+set page-completions on
+set completion-query-items 200
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set visible-stats on
+#
+# enable coloring for tab completions (^4.3)
+set colored-stats on
+
+# dont echo ^C etc (^4.1)
+set echo-control-characters off
+
+# be vimish
 set editing-mode vi
 
+# insert as default
 set keymap vi-insert
 
 # search history
@@ -15,4 +32,5 @@ set keymap vi-insert
 # go to normal mode (bind jj to esc)
 "jj": "\e"
 
-
+# include system-wide rc
+# $include /etc/inputrc
