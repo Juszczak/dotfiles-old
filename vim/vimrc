@@ -5,6 +5,7 @@
 set nocompatible
 filetype off
 
+
 " key bindings
 " F1 HELP
 " F2 Paste Mode Toggle
@@ -17,6 +18,43 @@ filetype off
 " F9 Incremental Search Toggle
 " F10 Autoformat
 
+" note: vim works only with posix shells
+set shell=/usr/local/bin/bash
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+" Vundle, the plug-in manager
+" https://github.com/VundleVim/Vundle.vim
+Plugin 'VundleVim/Vundle.vim'
+
+" status/tabline
+" https://github.com/bling/vim-airline
+Plugin 'bling/vim-airline'
+
+" git wrapper
+" https://github.com/tpope/vim-fugitive
+Plugin 'tpope/vim-fugitive'
+
+" git status in the gutter
+" https://github.com/airblade/vim-gitgutter
+Plugin 'airblade/vim-gitgutter'
+
+" tree explorer
+" https://github.com/scrooloose/nerdtree
+Plugin 'scrooloose/nerdtree'
+
+" nerdtree and tabs together, painlessly
+" https://github.com/jistr/vim-nerdtree-tabs
+Plugin 'jistr/vim-nerdtree-tabs'
+
+" git status in nerdtree
+" https://github.com/Xuyuanp/nerdtree-git-plugin
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+call vundle#end()
+filetype plugin indent on
 
 " space as colon
 nmap <space> :
@@ -70,6 +108,24 @@ cmap w!! w !sudo tee > /dev/null %
 " set syntax highlighting on
 syntax on
 
+colorscheme artefakt
+
+set encoding=utf-8
+
+set laststatus=2
+
+set t_Co=256
+
+set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+
+set noeb vb t_vb=
+set vb t_vb=
+
+try
+	set transparency =5
+catch
+endtry
+
 set pastetoggle=<F2>
 
 set incsearch
@@ -108,18 +164,109 @@ set number
 " relative numbers by default
 set relativenumber
 
+" highlight current line
+set cursorline
+
 " no annoying ~ files
 set nobackup
 set nowritebackup
 set noswapfile
 
-" set clipboard at mac
+" set the file name as terminal title
+set titlestring=%f title
+
+" set osx' clipboard
 " set clipboard=unnamed
 
 " hide scrollbar in MacVim
 set guioptions-=r
 set guioptions-=L
 
-" wtf?
-set noeb vb t_vb=
-set vb t_vb=
+" auto set cwd
+autocmd BufEnter * lcd %:p:h
+
+" plugins settings
+
+" airline
+" TODO
+let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'dark'
+
+
+" tabline
+" :help airline-tabline for more info
+let g:airline#extensions#tabline#enabled = 1
+" TODO:
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#show_tab_type = 1
+let g:airline#extensions#tabline#formatter = 'default'
+" :help filename-modifiers
+let g:airline#extensions#tabline#fnamemod = ':s?NERD_tree_1?tree?:s?ControlP?open?:t:.'
+let g:airline#extensions#tabline#fnamecollapse = 1
+let g:airline#extensions#tabline#fnametruncate = 0
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+let g:airline#extensions#tabline#tab_min_count = 0
+let g:airline#extensions#tabline#show_close_button = 1
+let g:airline#extensions#tabline#close_symbol = 'X'
+
+" gitgutter
+
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_max_signs = 1000
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 1
+" let g:gitgutter_highlight_lines = 1
+
+" override default signs + - ~
+" let g:gitgutter_sign_added = '⦁'
+" let g:gitgutter_sign_modified = '⦁'
+" let g:gitgutter_sign_removed = '⦁'
+" let g:gitgutter_sign_removed_first_line = '⦁'
+" let g:gitgutter_sign_modified_removed = '⦁'
+
+" nerdtree
+
+" open automatically when vim starts up
+autocmd vimenter * if !argc() | NERDTree | endif
+
+" open automatically when vim starts up
+"   if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0
+  \ && !exists("s:std_in") | NERDTree | endif
+
+autocmd bufenter * if (winnr("$") == 1
+  \ && exists("b:NERDTree")
+  \ && b:NERDTree.isTabTree()) | q | endif
+
+" show hidden files in NerdTree
+" let g:NERDTreeShowHidden=1
+
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+" nerdtreetabs
+let g:nerdtree_tabs_open_on_new_tab = 1
+
+" nerdtree-git-plugin
+
+let g:NERDTreeMapNextHunk = "]c"
+let g:NERDTreeMapPrevHunk = "[c"
+
+" TODO: set to something sane
+let g:NERDTreeUseSimpleIndicator = 0
+let g:NERDTreeIndicatorMapCustom = {
+  \ "Modified"  : "~",
+  \ "Staged"    : "+",
+  \ "Untracked" : "•",
+  \ "Renamed"   : "→",
+  \ "Unmerged"  : "═",
+  \ "Deleted"   : "x",
+  \ "Dirty"     : "x",
+  \ "Clean"     : "*",
+  \ "Unknown"   : "?"
+  \ }
