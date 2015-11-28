@@ -5,10 +5,17 @@
 set completion-ignore-case on
 set page-completions on
 set completion-query-items 200
+
+# show completions immediately if multiple matches
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
 set visible-stats on
-#
+
+# hyphen can be used to complete underscores
+set completion-map-case on
+
+set mark-symlinked-directories on
+
 # enable coloring for tab completions (^4.3)
 set colored-stats on
 
