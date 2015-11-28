@@ -1,0 +1,18 @@
+set completion-ignore-case on
+
+set editing-mode vi
+
+set keymap vi-insert
+
+# search history
+"\C-j": history-search-forward
+"\C-k": history-search-backward
+
+# cycle thru completions
+"\C-n": menu-complete
+"\C-p": menu-complete-backward
+
+# go to normal mode (bind jj to esc)
+"jj": "\e"
+
+
