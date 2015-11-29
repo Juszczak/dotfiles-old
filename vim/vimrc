@@ -40,7 +40,11 @@ Plugin 'tpope/vim-fugitive'
 " https://github.com/airblade/vim-gitgutter
 Plugin 'airblade/vim-gitgutter'
 
-" visualize your undo tree
+" marks
+" https://github.com/kshenoy/vim-signature
+Plugin 'kshenoy/vim-signature'
+
+" visualize undo tree
 " https://github.com/sjl/gundo.vim
 Plugin 'sjl/gundo.vim'
 
@@ -52,7 +56,7 @@ Plugin 'kien/ctrlp.vim'
 " https://github.com/scrooloose/nerdtree
 Plugin 'scrooloose/nerdtree'
 
-" nerdtree and tabs together, painlessly
+" nerdtree ext
 " https://github.com/jistr/vim-nerdtree-tabs
 Plugin 'jistr/vim-nerdtree-tabs'
 
@@ -298,6 +302,25 @@ let g:gitgutter_eager = 1
 " let g:gitgutter_sign_removed = '⦁'
 " let g:gitgutter_sign_removed_first_line = '⦁'
 " let g:gitgutter_sign_modified_removed = '⦁'
+
+" signature
+function! SignatureGitGutter(lnum)
+	let gg_line_state = filter(copy(gitgutter#diff#process_hunks(gitgutter#hunk#hunks())), 'v:val[0] == a:lnum')
+	" echo gg_line_state
+
+	if len(gg_line_state) == 0
+		return 'Exception'
+	endif
+
+	if gg_line_state[0][1] =~ 'added'
+		return 'GitGutterAdd'
+	elseif gg_line_state[0][1] =~ 'modified'
+		return 'GitGutterChange'
+	elseif gg_line_state[0][1] =~ 'removed'
+		return 'GitGutterDelete'
+	endif
+endfunction
+let g:SignatureMarkTextHL = 'SignatureGitGutter(a:lnum)'
 
 " gundo
 " http://sjl.bitbucket.org/gundo.vim/#configuration
