@@ -5,7 +5,6 @@
 set nocompatible
 filetype off
 
-
 " key bindings
 " F1 HELP
 " F2 Paste Mode Toggle
@@ -52,6 +51,54 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " git status in nerdtree
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" pair brackets, parens, quotes, etc
+" https://github.com/jiangmiao/auto-pairs
+Plugin 'jiangmiao/auto-pairs'
+
+" quoting/parenthesizing
+" https://github.com/tpope/vim-surround
+Plugin 'tpope/vim-surround'
+
+" comments
+" https://github.com/tomtom/tcomment_vim
+Plugin 'tomtom/tcomment_vim'
+
+" javascript
+" https://github.com/pangloss/vim-javascript
+" Plugin 'pangloss/vim-javascript'
+" https://github.com/othree/yajs.vim
+Plugin 'othree/yajs.vim'
+
+" coffeescript
+" https://github.com/kchmck/vim-coffee-script
+Plugin 'kchmck/vim-coffee-script'
+
+" typescript
+" https://github.com/leafgarland/typescript-vim
+Plugin 'leafgarland/typescript-vim'
+
+" TODO:
+" http://choly.ca/post/typescript-vim-completion/
+" ts tools
+" https://github.com/icholy/typescript-tools
+" Plugin 'icholy/typescript-tools'
+
+" completion engine
+" https://github.com/Valloric/YouCompleteMe
+Plugin 'Valloric/YouCompleteMe'
+
+" code formating
+" https://github.com/Chiel92/vim-autoformat
+Plugin 'Chiel92/vim-autoformat'
+
+" tmux.conf syntax highlight
+" https://github.com/keith/tmux.vim
+Plugin 'keith/tmux.vim'
+
+" editor config  http://editorconfig.org
+" https://github.com/editorconfig/editorconfig-vim
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -101,6 +148,9 @@ nmap <F8> :set ignorecase! ignorecase?<Cr>
 
 " toggle incremental search
 nmap <F9> :set incsearch! incsearch?<CR>
+
+" autoformat
+noremap <F10> :Autoformat<CR><CR>
 
 " allow saving of files as sudo when forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
