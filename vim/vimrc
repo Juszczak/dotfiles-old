@@ -44,6 +44,10 @@ Plugin 'airblade/vim-gitgutter'
 " https://github.com/sjl/gundo.vim
 Plugin 'sjl/gundo.vim'
 
+" fuzzy finder
+" https://github.com/kien/ctrlp.vim
+Plugin 'kien/ctrlp.vim'
+
 " tree explorer
 " https://github.com/scrooloose/nerdtree
 Plugin 'scrooloose/nerdtree'
@@ -244,6 +248,8 @@ set titlestring=%f title
 set guioptions-=r
 set guioptions-=L
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
 " auto set cwd
 autocmd BufEnter * lcd %:p:h
 
@@ -266,7 +272,7 @@ let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#show_tab_type = 1
 let g:airline#extensions#tabline#formatter = 'default'
 " :help filename-modifiers
-let g:airline#extensions#tabline#fnamemod = ':s?NERD_tree_1?tree?:s?ControlP?open?:t:.'
+let g:airline#extensions#tabline#fnamemod = ':s?NERD_tree_2?tree?:s?ControlP?open?:t:.'
 let g:airline#extensions#tabline#fnamecollapse = 1
 let g:airline#extensions#tabline#fnametruncate = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
@@ -303,6 +309,15 @@ let g:gundo_preview_bottom = 1
 let g:gundo_help = 0
 let g:gundo_auto_preview = 1
 let g:gundo_playback_delay = 60
+
+" ctrlp
+" https://github.com/kien/ctrlp.vim#basic-options
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](node_modules|lib|dist|public|img)|(\.(git|svn))$',
+  \ 'file': '\v\.(exe|so|dll|ico|png|jpg|jpeg|gif)$',
+  \ 'link': '',
+  \ }
 
 " nerdtree
 
