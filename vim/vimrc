@@ -40,6 +40,10 @@ Plugin 'tpope/vim-fugitive'
 " https://github.com/airblade/vim-gitgutter
 Plugin 'airblade/vim-gitgutter'
 
+" visualize your undo tree
+" https://github.com/sjl/gundo.vim
+Plugin 'sjl/gundo.vim'
+
 " tree explorer
 " https://github.com/scrooloose/nerdtree
 Plugin 'scrooloose/nerdtree'
@@ -52,11 +56,11 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
-" pair brackets, parens, quotes, etc
+" brackets, parens, quotes, etc
 " https://github.com/jiangmiao/auto-pairs
 Plugin 'jiangmiao/auto-pairs'
 
-" quoting/parenthesizing
+" quoting, parenthesizing, etc
 " https://github.com/tpope/vim-surround
 Plugin 'tpope/vim-surround'
 
@@ -134,8 +138,11 @@ nmap <D-0> gt
 
 nmap <F2> :set invpaste paste?<CR>
 
-" toggle NERDTree
+" toggle nerdtree
 nmap <F3> :NERDTreeTabsToggle<cr>
+
+" toggle gundo
+nmap <F4> :GundoToggle<CR>
 
 " toggle relative numbers
 nmap <F6> :set relativenumber! relativenumber?<Cr>
@@ -155,7 +162,7 @@ noremap <F10> :Autoformat<CR><CR>
 " allow saving of files as sudo when forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
 
-" set syntax highlighting on
+" syntax highlighting on
 syntax on
 
 colorscheme artefakt
@@ -166,8 +173,10 @@ set laststatus=2
 
 set t_Co=256
 
+" https://github.com/powerline/fonts
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13
 
+" disable beeping
 set noeb vb t_vb=
 set vb t_vb=
 
@@ -181,6 +190,9 @@ set pastetoggle=<F2>
 set incsearch
 
 set ignorecase
+
+" highlight last search
+set hlsearch
 
 " highlight all matching search patterns
 " set hlsearch!
@@ -238,14 +250,14 @@ autocmd BufEnter * lcd %:p:h
 " plugins settings
 
 " airline
+" :help airline
 " TODO
 let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'dark'
 
-
 " tabline
-" :help airline-tabline for more info
+" :help airline-tabline
 let g:airline#extensions#tabline#enabled = 1
 " TODO:
 let g:airline#extensions#tabline#show_buffers = 0
@@ -263,8 +275,11 @@ let g:airline#extensions#tabline#tab_min_count = 0
 let g:airline#extensions#tabline#show_close_button = 1
 let g:airline#extensions#tabline#close_symbol = 'X'
 
-" gitgutter
+" fugitive
+" https://github.com/tpope/vim-fugitive
 
+" gitgutter
+" https://github.com/airblade/vim-gitgutter#customisation
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_max_signs = 1000
 let g:gitgutter_realtime = 0
@@ -277,6 +292,17 @@ let g:gitgutter_eager = 1
 " let g:gitgutter_sign_removed = '⦁'
 " let g:gitgutter_sign_removed_first_line = '⦁'
 " let g:gitgutter_sign_modified_removed = '⦁'
+
+" gundo
+" http://sjl.bitbucket.org/gundo.vim/#configuration
+let g:gundo_disable = 0
+let g:gundo_width = 45
+let g:gundo_preview_height = 15
+let g:gundo_right = 1
+let g:gundo_preview_bottom = 1
+let g:gundo_help = 0
+let g:gundo_auto_preview = 1
+let g:gundo_playback_delay = 60
 
 " nerdtree
 
@@ -303,12 +329,12 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 let g:nerdtree_tabs_open_on_new_tab = 1
 
 " nerdtree-git-plugin
-
+" https://github.com/Xuyuanp/git-nerdtree
 let g:NERDTreeMapNextHunk = "]c"
 let g:NERDTreeMapPrevHunk = "[c"
+let g:NERDTreeUseSimpleIndicator = 0
 
 " TODO: set to something sane
-let g:NERDTreeUseSimpleIndicator = 0
 let g:NERDTreeIndicatorMapCustom = {
   \ "Modified"  : "~",
   \ "Staged"    : "+",
@@ -320,3 +346,5 @@ let g:NERDTreeIndicatorMapCustom = {
   \ "Clean"     : "*",
   \ "Unknown"   : "?"
   \ }
+
+
