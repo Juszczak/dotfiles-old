@@ -64,6 +64,10 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
+" syntax checking hacks
+" https://github.com/scrooloose/syntastic
+Plugin 'scrooloose/syntastic'
+
 " brackets, parens, quotes, etc
 " https://github.com/jiangmiao/auto-pairs
 Plugin 'jiangmiao/auto-pairs'
@@ -290,11 +294,11 @@ let g:airline#extensions#tabline#close_symbol = 'X'
 
 " gitgutter
 " https://github.com/airblade/vim-gitgutter#customisation
-let g:gitgutter_sign_column_always = 1
+let g:gitgutter_sign_column_always = 0
 let g:gitgutter_max_signs = 1000
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 1
-" let g:gitgutter_highlight_lines = 1
+let g:gitgutter_highlight_lines = 0
 
 " override default signs + - ~
 " let g:gitgutter_sign_added = '⦁'
@@ -305,8 +309,10 @@ let g:gitgutter_eager = 1
 
 " signature
 function! SignatureGitGutter(lnum)
-	let gg_line_state = filter(copy(gitgutter#diff#process_hunks(gitgutter#hunk#hunks())), 'v:val[0] == a:lnum')
-	" echo gg_line_state
+	let gg_line_state = filter(
+    \ copy(gitgutter#diff#process_hunks(gitgutter#hunk#hunks())),
+    \ 'v:val[0] == a:lnum'
+  \ )
 
 	if len(gg_line_state) == 0
 		return 'Exception'
