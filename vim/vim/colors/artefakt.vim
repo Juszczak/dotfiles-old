@@ -43,9 +43,9 @@ endif
 " }}}
 
 " {{{ folding / line numbering / status lines
-hi Folded         guibg=#a0a8b0   guifg=#384048   gui=none
-hi vimFold        guibg=#a0a8b0   guifg=#384048   gui=none
-hi FoldColumn     guibg=#a0a8b0   guifg=#384048   gui=none
+hi Folded         guibg=#767676   guifg=#303030   gui=none    ctermbg=243   ctermfg=236
+hi vimFold        guibg=#767676   guifg=#303030   gui=none    ctermbg=243   ctermfg=236
+hi FoldColumn     guibg=#767676   guifg=#303030   gui=none    ctermbg=243   ctermfg=236
 
 hi LineNr         guibg=#111111   guifg=#5c5a4f   gui=none    ctermbg=232   ctermfg=239
 hi NonText        guibg=#303030   guifg=#808080   gui=none    ctermbg=237   ctermfg=242
@@ -77,7 +77,7 @@ if version >= 700
   hi MatchParent  guibg=#857b6f   guifg=#f6f3e8   gui=bold    ctermbg=059
 endif
 
-hi Directory                      guifg=#008787   gui=none                  ctermfg=030
+hi Directory                      guifg=#00af87   gui=none                  ctermfg=036
 
 " }}}
 
@@ -176,26 +176,25 @@ hi Todo                           guifg=#8f8f8f   gui=italic                cter
 " }}}
 
 " {{{ diff
-hi DiffAdd    			guibg=#005f00 	              gui=none    ctermbg=022
-hi DiffDelete 			guibg=#af0000 	              gui=none    ctermbg=124
-hi DiffChange 			guibg=#808000 	              gui=none    ctermbg=003
-hi DiffText   			guibg=#005f00 guifg=#ff8700               ctermbg=022
+hi DiffAdd    			guibg=#005000 	              gui=none    ctermbg=022
+hi DiffDelete 			guibg=#500000 guifg=#242424   gui=none    ctermbg=124   ctermfg=235
+hi DiffChange 			guibg=#505000 	              gui=none    ctermbg=058
+hi DiffText   			guibg=#005000 guifg=#ff8700               ctermbg=022   ctermfg=208
 " }}}
 
 " {{{ gitgutter
 hi clear SignColumn
-hi GitGutterAdd                   guibg=#005f00
-hi GitGutterChange                guibg=#808000
-hi GitGutterDelete                guibg=#af0000
-hi GitGutterChangeDelete          guibg=#af0000
+hi GitGutterAdd                   guibg=#111111  guifg=#008700   gui=none    ctermbg=232   ctermbg=028
+hi GitGutterChange                guibg=#111111  guifg=#cdd129   gui=none    ctermbg=232   ctermbg=184
+hi GitGutterDelete                guibg=#111111  guifg=#cd0000   gui=none    ctermbg=232   ctermbg=009
+hi GitGutterChangeDelete          guibg=#111111  guifg=#cd0000   gui=none    ctermbg=232   ctermbg=009
 
-hi GitGutterAddLine               guibg=#005f00
-hi GitGutterChangeLine            guibg=#808000
-hi GitGutterDeleteLine            guibg=#af0000
-hi GitGutterChangeDeleteLine      guibg=#af0000
+hi GitGutterAddLine               guibg=#005000
+hi GitGutterChangeLine            guibg=#505000
+hi GitGutterDeleteLine            guibg=#500000
+hi GitGutterChangeDeleteLine      guibg=#500000
 " }}}
 
-" TODO: spellBad, spellCap,  spellRare, spellLocal
 " {{{ Spelling
 hi spellBad     guisp=#fcaf3e
 hi spellCap     guisp=#73d216
@@ -204,7 +203,7 @@ hi spellLocal   guisp=#729fcf
 " }}}
 
 " TODO: TabLine, TabLineFill, TabLineSel
-" {{{ tabs (non-gui0
+" {{{ tabs (non-gui0)
 hi TabLine		      guibg=#d0d0d0 guifg=#444444   gui=none    ctermbg=252   ctermfg=238
 hi TabLineFill	    guibg=#d0d0d0 guifg=#444444   gui=none    ctermbg=252   ctermfg=238
 hi TabLineSel	                    guifg=#444444   gui=bold    ctermbg=252   ctermfg=238
