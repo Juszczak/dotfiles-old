@@ -1,18 +1,40 @@
 # ~/.inputrc
 # Adrian Juszczk (https://github.com/juszczak/dotfiles)
+# ref https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File-Syntax.html#Readline-Init-File-Syntax
 
 # completion options
 set completion-ignore-case on
 set page-completions on
 set completion-query-items 200
 
+# hyphen can be used to complete underscores
+set completion-map-case on
+
+set expand-tilde on
+
+# unlimited history
+set history-size -1
+
+set mark-directories on
+
+# mark modified history entries with *
+set mark-modified-lines on
+
+# match hidden files only after .
+set match-hidden-files off
+
+# complete common prefix
+set menu-complete-display-prefix on
+
+# page completions with more-like pager
+set page-completions on
+
+set print-completions-horizontally on
+
 # show completions immediately if multiple matches
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
 set visible-stats on
-
-# hyphen can be used to complete underscores
-set completion-map-case on
 
 set mark-symlinked-directories on
 
