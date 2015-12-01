@@ -66,7 +66,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " syntax checking hacks
 " https://github.com/scrooloose/syntastic
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 
 " brackets, parens, quotes, etc
 " https://github.com/jiangmiao/auto-pairs
@@ -80,25 +80,9 @@ Plugin 'tpope/vim-surround'
 " https://github.com/tomtom/tcomment_vim
 Plugin 'tomtom/tcomment_vim'
 
-" javascript
-" https://github.com/pangloss/vim-javascript
-" Plugin 'pangloss/vim-javascript'
-" https://github.com/othree/yajs.vim
-Plugin 'othree/yajs.vim'
-
-" coffeescript
-" https://github.com/kchmck/vim-coffee-script
-Plugin 'kchmck/vim-coffee-script'
-
-" typescript
-" https://github.com/leafgarland/typescript-vim
-Plugin 'leafgarland/typescript-vim'
-
-" TODO:
-" http://choly.ca/post/typescript-vim-completion/
-" ts tools
-" https://github.com/icholy/typescript-tools
-" Plugin 'icholy/typescript-tools'
+" colors preview
+" https://github.com/gorodinskiy/vim-coloresque
+Plugin 'gorodinskiy/vim-coloresque'
 
 " completion engine
 " https://github.com/Valloric/YouCompleteMe
@@ -108,13 +92,20 @@ Plugin 'Valloric/YouCompleteMe'
 " https://github.com/Chiel92/vim-autoformat
 Plugin 'Chiel92/vim-autoformat'
 
-" tmux.conf syntax highlight
-" https://github.com/keith/tmux.vim
-Plugin 'keith/tmux.vim'
-
 " editor config  http://editorconfig.org
 " https://github.com/editorconfig/editorconfig-vim
 Plugin 'editorconfig/editorconfig-vim'
+
+" solid language pack
+" https://github.com/sheerun/vim-polyglot
+Plugin 'sheerun/vim-polyglot'
+
+" TODO:
+" http://choly.ca/post/typescript-vim-completion/
+" ts tools
+" https://github.com/icholy/typescript-tools
+" Plugin 'icholy/typescript-tools'
+
 
 call vundle#end()
 filetype plugin indent on
@@ -204,9 +195,10 @@ set incsearch
 set ignorecase
 
 " highlight last search
-set hlsearch
+" set hlsearch
 
 " highlight all matching search patterns
+" TODO: bind somewhere
 " set hlsearch!
 
 " ignore case if search pattern is all lowercase
@@ -390,5 +382,4 @@ let g:NERDTreeIndicatorMapCustom = {
   \ "Clean"     : "*",
   \ "Unknown"   : "?"
   \ }
-
 
