@@ -100,6 +100,14 @@ Plugin 'editorconfig/editorconfig-vim'
 " https://github.com/sheerun/vim-polyglot
 Plugin 'sheerun/vim-polyglot'
 
+" match xml tags
+" https://github.com/gregsexton/MatchTag
+Plugin 'gregsexton/MatchTag'
+
+" extended % jump
+" https://github.com/tmhedberg/matchit
+Plugin 'tmhedberg/matchit'
+
 " TODO:
 " http://choly.ca/post/typescript-vim-completion/
 " ts tools
@@ -368,7 +376,7 @@ let g:nerdtree_tabs_open_on_new_tab = 1
 " https://github.com/Xuyuanp/git-nerdtree
 let g:NERDTreeMapNextHunk = "]c"
 let g:NERDTreeMapPrevHunk = "[c"
-let g:NERDTreeUseSimpleIndicator = 0
+let g:NERDTreeUseSimpleIndicator = 1
 
 " TODO: set to something sane
 let g:NERDTreeIndicatorMapCustom = {
