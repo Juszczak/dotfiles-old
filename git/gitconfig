@@ -1,0 +1,55 @@
+; ~/.gitconfig
+; Adrian Juszczak (https://github.com/juszczak/dotfiles)
+
+[user]
+	name = "$GIT_AUTHOR_NAME"
+	email = "$GIT_AUTHOR_EMAIL"
+
+[core]
+	editor = mvim
+	pager = less -x2
+	excludesfile = /Users/$USER/.gitignore
+
+; shortcuts
+[alias]
+	st = status
+	cm = commit
+	br = branch
+	ch = checkout
+	df = diff
+	dc = diff --cached
+	dt = difftool
+	lgp = log -p
+	who = shortlog -s --
+
+; whats new
+[alias]
+  yd = git diff "@{yesterday}"
+
+; merge conflicts
+[alias]
+	eum = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; mvim `f`"
+	aum = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
+
+; pretty log
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+; seeing the fetched commits
+[alias]
+  ; better than `whatchanged`
+	wc = log ORIG_HEAD.. --stat --no-merges
+
+; danger!
+[alias]
+	undo = reset --hard
+
+[credential]
+	helper = osxkeychain
+
+[merge]
+	tool = gvimdiff
+
+[diff]
+	tool = gvimdiff
+
