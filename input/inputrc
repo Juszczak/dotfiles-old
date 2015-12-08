@@ -47,6 +47,8 @@ set echo-control-characters off
 # be vimish
 set editing-mode vi
 
+set show-mode-in-prompt on
+
 # insert as default
 set keymap vi-insert
 
