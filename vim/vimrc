@@ -379,29 +379,7 @@ autocmd bufenter * if (winnr("$") == 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
-let g:NERDTreeAutoCenter = 1
-let g:NERDTreeAutoCenterThreshold = 3
-let g:NERDTreeChDirMode = 2
-let g:NERDTreeHighlightCursorline = 1
-let g:NERDTreeIgnore = ['\~$']
-let g:NERDTreeRespectWildIgnore = 0
-let g:NERDTreeMouseMode = 1
-let g:NERDTreeQuitOnOpen = 0
-
 let g:NERDTreeShowBookmarks = 1
-let g:NERDTreeShowFiles = 1
-let g:NERDTreeShowHidden = 0
-
-let g:NERDTreeSortOrder = [
-  \  '\/$',
-  \  '*',
-  \  '\.swp$',
-  \  '\.bak$',
-  \  '\~$'
-  \ ]
-
-let g:NERDTreeWinPos = "left"
-let g:NERDTreeWinSize = 31
 let g:NERDTreeMinimalUI = 1
 
 " nerdtreetabs
