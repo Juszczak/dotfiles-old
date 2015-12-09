@@ -102,7 +102,9 @@ Plugin 'sheerun/vim-polyglot'
 
 " match xml tags
 " https://github.com/gregsexton/MatchTag
-Plugin 'gregsexton/MatchTag'
+" Plugin 'gregsexton/MatchTag'
+" https://github.com/Valloric/MatchTagAlways
+Plugin 'Valloric/MatchTagAlways'
 
 " extended % jump
 " https://github.com/tmhedberg/matchit
@@ -121,6 +123,10 @@ Plugin 'tmux-plugins/vim-tmux'
 " tmuxline builder
 " https://github.com/edkolev/tmuxline.vim
 Plugin 'edkolev/tmuxline.vim'
+
+" prompt builder
+" https://github.com/edkolev/promptline.vim
+Plugin 'edkolev/promptline.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -308,11 +314,11 @@ let g:gitgutter_eager = 1
 let g:gitgutter_highlight_lines = 0
 
 " override default signs + - ~
-" let g:gitgutter_sign_added = '⦁'
-" let g:gitgutter_sign_modified = '⦁'
-" let g:gitgutter_sign_removed = '⦁'
-" let g:gitgutter_sign_removed_first_line = '⦁'
-" let g:gitgutter_sign_modified_removed = '⦁'
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '~'
+let g:gitgutter_sign_modified_removed = '~'
 
 " signature
 function! SignatureGitGutter(lnum)
@@ -370,11 +376,33 @@ autocmd bufenter * if (winnr("$") == 1
   \ && exists("b:NERDTree")
   \ && b:NERDTree.isTabTree()) | q | endif
 
-" show hidden files in NerdTree
-" let g:NERDTreeShowHidden=1
-
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+
+let g:NERDTreeAutoCenter = 1
+let g:NERDTreeAutoCenterThreshold = 3
+let g:NERDTreeChDirMode = 2
+let g:NERDTreeHighlightCursorline = 1
+let g:NERDTreeIgnore = ['\~$']
+let g:NERDTreeRespectWildIgnore = 0
+let g:NERDTreeMouseMode = 1
+let g:NERDTreeQuitOnOpen = 0
+
+let g:NERDTreeShowBookmarks = 1
+let g:NERDTreeShowFiles = 1
+let g:NERDTreeShowHidden = 0
+
+let g:NERDTreeSortOrder = [
+  \  '\/$',
+  \  '*',
+  \  '\.swp$',
+  \  '\.bak$',
+  \  '\~$'
+  \ ]
+
+let g:NERDTreeWinPos = "left"
+let g:NERDTreeWinSize = 31
+let g:NERDTreeMinimalUI = 1
 
 " nerdtreetabs
 let g:nerdtree_tabs_open_on_new_tab = 1
@@ -392,7 +420,7 @@ let g:NERDTreeIndicatorMapCustom = {
   \ "Untracked" : "•",
   \ "Renamed"   : "→",
   \ "Unmerged"  : "═",
-  \ "Deleted"   : "x",
+  \ "Deleted"   : "-",
   \ "Dirty"     : "x",
   \ "Clean"     : "*",
   \ "Unknown"   : "?"
@@ -400,3 +428,6 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " tmuxline
 let g:tmuxline_preset = 'adrian'
+
+" do not overwrite tmux theme
+let g:airline#extensions#tmuxline#enabled = 0
