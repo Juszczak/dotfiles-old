@@ -184,10 +184,10 @@ hi DiffText   			guibg=#005000 guifg=#ff8700               ctermbg=022   ctermfg
 
 " {{{ gitgutter
 hi clear SignColumn
-hi GitGutterAdd                   guibg=#111111  guifg=#008700   gui=none    ctermbg=232   ctermbg=028
-hi GitGutterChange                guibg=#111111  guifg=#cdd129   gui=none    ctermbg=232   ctermbg=184
-hi GitGutterDelete                guibg=#111111  guifg=#cd0000   gui=none    ctermbg=232   ctermbg=009
-hi GitGutterChangeDelete          guibg=#111111  guifg=#cd0000   gui=none    ctermbg=232   ctermbg=009
+hi GitGutterAdd                   guibg=#111111  guifg=#008700   gui=none    ctermbg=232   ctermfg=028
+hi GitGutterChange                guibg=#111111  guifg=#cdd129   gui=none    ctermbg=232   ctermfg=184
+hi GitGutterDelete                guibg=#111111  guifg=#cd0000   gui=none    ctermbg=232   ctermfg=009
+hi GitGutterChangeDelete          guibg=#111111  guifg=#cdd129   gui=none    ctermbg=232   ctermfg=184
 
 hi GitGutterAddLine               guibg=#005000
 hi GitGutterChangeLine            guibg=#505000
