@@ -1,0 +1,20 @@
+# set prompt
+prompt=~/.bash/prompt/promptline.sh
+if [ -f $prompt ]; then
+  echo $prompt
+fi
+
+# set completions
+completions=$(brew --prefix)/etc/bash_completion
+if [ -f $completions ]; then
+  echo $completions
+fi
+
+# set marks
+marks=~/.bash/marks/marks.sh
+if [ -f $marks ]; then
+  echo $marks
+fi
+
+# set vi mode
+set -o vi
