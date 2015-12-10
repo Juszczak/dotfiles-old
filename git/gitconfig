@@ -53,3 +53,5 @@
 [diff]
 	tool = gvimdiff
 
+[push]
+	default = simple
