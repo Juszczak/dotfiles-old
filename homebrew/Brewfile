@@ -1,0 +1,67 @@
+cask_args appdir: '/Applications'
+
+tap 'caskroom/cask'
+tap 'homebrew/bundle'
+tap 'homebrew/completions'
+
+# gui for vim, made for osx
+brew 'macvim',
+  \ args: [
+  \   'with-custom-icons',
+  \   'with-override-system-vim',
+  \   'with-lua',
+  \   'with-luajit'
+  \ ]
+
+# core
+brew 'ack'
+brew 'bash'
+brew 'git'
+brew 'reattach-to-user-namespace'
+brew 'tmux'
+
+# langs
+brew 'erlang'
+brew 'lua'
+brew 'luajit'
+brew 'node'
+brew 'python'
+brew 'ruby'
+cask 'java'
+
+# dev
+brew 'couchdb'
+brew 'memcached'
+brew 'sqlite'
+
+brew 'awscli'
+brew 'heroku-toolbelt'
+brew 'hub'
+
+# sys
+brew 'brew-gem'
+brew 'htop-osx'
+brew 'tree'
+
+# tools
+brew 'editorconfig'
+brew 'markdown'
+brew 'rename'
+brew 'watchman'
+
+# utils
+brew 'curl'
+brew 'unrar'
+brew 'wget'
+
+# completions
+brew 'bash-completion'
+
+# apps
+cask 'google-chrome'
+cask 'slack'
+cask 'spotify'
+cask 'viscosity'
+cask 'spectacle'
+cask 'caffeine'
+cask 'epic'
