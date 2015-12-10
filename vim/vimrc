@@ -368,9 +368,6 @@ let g:ctrlp_custom_ignore = {
 " nerdtree
 
 " open automatically when vim starts up
-autocmd vimenter * if !argc() | NERDTree | endif
-
-" open automatically when vim starts up
 "   if no files were specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0
