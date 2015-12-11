@@ -394,7 +394,6 @@ let g:NERDTreeMapNextHunk = "]c"
 let g:NERDTreeMapPrevHunk = "[c"
 let g:NERDTreeUseSimpleIndicator = 1
 
-" TODO: set to something sane
 let g:NERDTreeIndicatorMapCustom = {
   \ "Modified"  : "~",
   \ "Staged"    : "+",
@@ -412,3 +411,10 @@ let g:tmuxline_preset = 'adrian'
 
 " do not overwrite tmux theme
 let g:airline#extensions#tmuxline#enabled = 0
+
+" filetypes
+autocmd BufNewFile,BufRead *.dircolors set filetype=dircolors
+autocmd BufNewFile,BufRead *.conf set filetype=tmux
+
+autocmd BufNewFile,BufRead *.scss.liquid set filetype=scss
+autocmd BufNewFile,BufRead *.js.liquid set filetype=javascript
