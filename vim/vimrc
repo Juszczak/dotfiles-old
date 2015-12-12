@@ -49,8 +49,8 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'sjl/gundo.vim'
 
 " fuzzy finder
-" https://github.com/kien/ctrlp.vim
-Plugin 'kien/ctrlp.vim'
+" https://github.com/ctrlpvim/ctrlp.vim
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " tree explorer
 " https://github.com/scrooloose/nerdtree
@@ -63,10 +63,6 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " git status in nerdtree
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-
-" syntax checking hacks
-" https://github.com/scrooloose/syntastic
-" Plugin 'scrooloose/syntastic'
 
 " brackets, parens, quotes, etc
 " https://github.com/jiangmiao/auto-pairs
@@ -109,12 +105,6 @@ Plugin 'Valloric/MatchTagAlways'
 " extended % jump
 " https://github.com/tmhedberg/matchit
 Plugin 'tmhedberg/matchit'
-
-" TODO:
-" http://choly.ca/post/typescript-vim-completion/
-" ts tools
-" https://github.com/icholy/typescript-tools
-" Plugin 'icholy/typescript-tools'
 
 " tmux syntax
 " https://github.com/tmux-plugins/vim-tmux
@@ -413,6 +403,8 @@ let g:tmuxline_preset = 'adrian'
 let g:airline#extensions#tmuxline#enabled = 0
 
 " filetypes
+autocmd BufNewFile,BufRead .eslintrc set filetype=json
+
 autocmd BufNewFile,BufRead *.dircolors set filetype=dircolors
 autocmd BufNewFile,BufRead *.conf set filetype=tmux
 
