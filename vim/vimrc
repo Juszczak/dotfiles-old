@@ -64,6 +64,10 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
+" ft icons
+" https://github.com/ryanoasis/vim-devicons
+Plugin 'ryanoasis/vim-devicons'
+
 " brackets, parens, quotes, etc
 " https://github.com/jiangmiao/auto-pairs
 Plugin 'jiangmiao/auto-pairs'
@@ -192,7 +196,7 @@ set laststatus=2
 set t_Co=256
 
 " https://github.com/powerline/fonts
-set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+set guifont=Sauce\ Code\ Pro:h13
 
 " disable beeping
 set noeb vb t_vb=
@@ -382,7 +386,7 @@ let g:nerdtree_tabs_open_on_new_tab = 1
 " https://github.com/Xuyuanp/git-nerdtree
 let g:NERDTreeMapNextHunk = "]c"
 let g:NERDTreeMapPrevHunk = "[c"
-let g:NERDTreeUseSimpleIndicator = 1
+let g:NERDTreeUseSimpleIndicator = 0
 
 let g:NERDTreeIndicatorMapCustom = {
   \ "Modified"  : "~",
@@ -391,10 +395,30 @@ let g:NERDTreeIndicatorMapCustom = {
   \ "Renamed"   : "→",
   \ "Unmerged"  : "═",
   \ "Deleted"   : "-",
-  \ "Dirty"     : "x",
+  \ "Dirty"     : "✗",
   \ "Clean"     : "*",
   \ "Unknown"   : "?"
   \ }
+
+" devicons
+if exists("g:loaded_webdevicons")
+    call webdevicons#refresh()
+endif
+
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+let g:webdevicons_enable_ctrlp = 1
+
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+" let g:DevIconsEnableFoldersOpenClose = 1
+
+autocmd FileType nerdtree setlocal nolist
 
 " tmuxline
 let g:tmuxline_preset = 'adrian'
