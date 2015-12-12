@@ -395,7 +395,7 @@ let g:NERDTreeIndicatorMapCustom = {
   \ "Renamed"   : "→",
   \ "Unmerged"  : "═",
   \ "Deleted"   : "-",
-  \ "Dirty"     : "✗",
+  \ "Dirty"     : "×",
   \ "Clean"     : "*",
   \ "Unknown"   : "?"
   \ }
@@ -418,7 +418,29 @@ let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 " let g:DevIconsEnableFoldersOpenClose = 1
 
+" let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {
+"   \
+"   \ }
+
+" let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {
+"   \   'ackrc': '',
+"   \   'bachrc': '',
+"   \   'bash_profile': '',
+"   \   'dircolors': '',
+"   \   'gitconfig': '',
+"   \   'gitignore': '',
+"   \   'brefile': '',
+"   \   'inputrc': '',
+"   \   '': '',
+"   \   'tmux.conf': '',
+"   \   'vimrc': '',
+"   \   '': '',
+"   \   '': ''
+"   \ }
+
 autocmd FileType nerdtree setlocal nolist
+
+source ~/.vim/config/nerdtree.vim
 
 " tmuxline
 let g:tmuxline_preset = 'adrian'

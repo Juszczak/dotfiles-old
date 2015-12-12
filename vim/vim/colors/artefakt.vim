@@ -77,7 +77,7 @@ if version >= 700
   hi MatchParent  guibg=#857b6f   guifg=#f6f3e8   gui=bold    ctermbg=059
 endif
 
-hi Directory                      guifg=#00af87   gui=none                  ctermfg=036
+hi Directory                      guifg=#af875f   gui=none                  ctermfg=137
 
 " }}}
 
@@ -253,6 +253,86 @@ hi TabLineSel	                    guifg=#444444   gui=bold    ctermbg=252   cter
 " hi SyntasticStyleErrorLine
 " links to 'SyntasticWarningLine' by default
 " hi SyntasticStyleWarningLine
+" }}}
+
+" {{{ nerdtree basic
+
+hi NERDTreeCWD                  guibg=NONE guifg=#87d700 ctermbg=NONE ctermfg=112
+hi NERDTreeExecFile             guibg=NONE guifg=#87ff00 ctermbg=NONE ctermfg=118
+hi NERDTreeFile                 guibg=NONE guifg=#d0d0d0 ctermbg=NONE ctermfg=252
+hi NERDTreeDir                  guibg=NONE guifg=#af875f ctermbg=NONE ctermfg=137
+hi NERDTreeDirSlash             guibg=NONE guifg=#ff5d28 ctermbg=NONE ctermfg=202
+
+hi NERDTreeBookmarkName         guibg=NONE guifg=#ff5d28 ctermbg=NONE ctermfg=202
+
+hi NERDTreeLinkFile             guibg=NONE guifg=#0087d7 ctermbg=NONE ctermfg=032
+hi NERDTreeLinkDir              guibg=NONE guifg=#af875f ctermbg=NONE ctermfg=137
+hi NERDTreeLinkTarget           guibg=NONE guifg=#cdd129 ctermbg=NONE ctermfg=184
+
+hi NERDTreeOpenable             guibg=NONE guifg=#87d700 ctermbg=NONE ctermfg=112
+hi NERDTreeClosable             guibg=NONE guifg=#87d700 ctermbg=NONE ctermfg=112
+
+" }}}
+
+" {{{ nerdtree filetypes
+
+" gitconfig, gitignore
+au FileType nerdtree hi gitconf guibg=NONE guifg=#f54d27 ctermbg=NONE ctermfg=166
+
+" *.ts
+au FileType nerdtree hi ts      guibg=NONE guifg=#0087ff ctermbg=NONE ctermfg=033
+
+" *.spec.ts
+au FileType nerdtree hi spects  guibg=NONE guifg=#875fd7 ctermbg=NONE ctermfg=098
+
+" *.styl
+au FileType nerdtree hi styl    guibg=NONE guifg=#5fff5f ctermbg=NONE ctermfg=083
+
+" *.js
+au FileType nerdtree hi js      guibg=NONE guifg=#f0db4f ctermbg=NONE ctermfg=227
+
+" *.coffee
+au FileType nerdtree hi coffee  guibg=NONE guifg=#ffaf00 ctermbg=NONE ctermfg=214
+
+" *.json
+au FileType nerdtree hi json    guibg=NONE guifg=#5faf5f ctermbg=NONE ctermfg=071
+
+" *.hbs
+au FileType nerdtree hi hbs     guibg=NONE guifg=#ff8700 ctermbg=NONE ctermfg=208
+
+" *.html
+au FileType nerdtree hi html    guibg=NONE guifg=#ff8700 ctermbg=NONE ctermfg=208
+
+" *.css
+au FileType nerdtree hi css     guibg=NONE guifg=#3074b1 ctermbg=NONE ctermfg=032
+
+" *.vim
+au FileType nerdtree hi vim     guibg=NONE guifg=#019833 ctermbg=NONE ctermfg=040
+
+" *vimrc
+au FileType nerdtree hi vim     guibg=NONE guifg=#019833 ctermbg=NONE ctermfg=040
+
+" *.tmux
+au FileType nerdtree hi tmux    guibg=NONE guifg=#1bb91f ctermbg=NONE ctermfg=076
+
+" *.sh
+au FileType nerdtree hi sh      guibg=NONE guifg=#008700 ctermbg=NONE ctermfg=028
+
+" inputrc
+au FileType nerdtree hi inputrc guibg=NONE guifg=#008700 ctermbg=NONE ctermfg=028
+
+" bashrc
+au FileType nerdtree hi bash    guibg=NONE guifg=#008700 ctermbg=NONE ctermfg=028
+
+" *.md
+au FileType nerdtree hi md      guibg=NONE guifg=#ede39e ctermbg=NONE ctermfg=187
+
+" LICENSE
+au FileType nerdtree hi license guibg=NONE guifg=#8f8f8f ctermbg=NONE ctermfg=245
+
+" *.node
+au FileType nerdtree hi node    guibg=NONE guifg=#80bd01 ctermbg=NONE ctermfg=076
+
 " }}}
 
 " {{{ colors references
