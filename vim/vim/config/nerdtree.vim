@@ -57,6 +57,9 @@ au FileType nerdtree syn match html #^\s\+.*html$#
 " *.css
 au FileType nerdtree syn match css #^\s\+.*css$#
 
+" *.less
+au FileType nerdtree syn match less #^\s\+.*less$#
+
 " gitconfig, gitignore
 au FileType nerdtree syn match gitconf #^\s\+.*git\w\+$#
 

@@ -306,6 +306,9 @@ au FileType nerdtree hi html    guibg=NONE guifg=#ff8700 ctermbg=NONE ctermfg=20
 " *.css
 au FileType nerdtree hi css     guibg=NONE guifg=#3074b1 ctermbg=NONE ctermfg=032
 
+" *.less
+au FileType nerdtree hi less    guibg=NONE guifg=#3074b1 ctermbg=NONE ctermfg=032
+
 " *.vim
 au FileType nerdtree hi vim     guibg=NONE guifg=#019833 ctermbg=NONE ctermfg=040
 
