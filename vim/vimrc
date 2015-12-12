@@ -446,7 +446,7 @@ let g:airline#extensions#tmuxline#enabled = 0
 " filetypes
 autocmd BufNewFile,BufRead .eslintrc set filetype=json
 
-autocmd BufNewFile,BufRead *.dircolors set filetype=dircolors
+autocmd BufNewFile,BufRead *dircolors set filetype=dircolors
 autocmd BufNewFile,BufRead *.conf set filetype=tmux
 
 autocmd BufNewFile,BufRead *.scss.liquid set filetype=scss
