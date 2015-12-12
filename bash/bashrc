@@ -1,20 +1,33 @@
 # set prompt
 prompt=~/.bash/prompt/promptline.sh
 if [ -f $prompt ]; then
-  echo $prompt
+  source $prompt
 fi
 
 # set completions
 completions=$(brew --prefix)/etc/bash_completion
 if [ -f $completions ]; then
-  echo $completions
+  source $completions
 fi
 
 # set marks
 marks=~/.bash/marks/marks.sh
 if [ -f $marks ]; then
-  echo $marks
+  source $marks
 fi
+
+# gnu environmen
+# PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+dircolors=~/.dircolors
+if [ -f $dircolors ]; then
+  eval `gdircolors -b $dircolors`
+fi
+
+alias ls="gls --color=always"
+alias grep="grep --color=always"
+alias egrep="egrep --color=always"
 
 # set vi mode
 set -o vi
