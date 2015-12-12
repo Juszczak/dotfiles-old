@@ -42,6 +42,7 @@ brew 'hub'
 brew 'brew-gem'
 brew 'htop-osx'
 brew 'tree'
+brew 'coreutils' # gnu utils
 
 # tools
 brew 'editorconfig'
