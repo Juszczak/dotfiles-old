@@ -202,11 +202,6 @@ set guifont=Sauce\ Code\ Pro:h13
 set noeb vb t_vb=
 set vb t_vb=
 
-try
-	set transparency =5
-catch
-endtry
-
 set pastetoggle=<F2>
 
 set incsearch
