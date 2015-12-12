@@ -2,11 +2,11 @@
 ; Adrian Juszczak (https://github.com/juszczak/dotfiles)
 
 [user]
-	name = "$GIT_AUTHOR_NAME"
-	email = "$GIT_AUTHOR_EMAIL"
+	name = Adrian Juszczak
+	email = adrian@juszczak.io
 
 [core]
-	editor = mvim
+	editor = vim
 	pager = less -x2
 	excludesfile = /Users/$USER/.gitignore
 
@@ -22,10 +22,6 @@
 	lgp = log -p
 	who = shortlog -s --
 
-; whats new
-[alias]
-  yd = git diff "@{yesterday}"
-
 ; merge conflicts
 [alias]
 	eum = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; mvim `f`"
@@ -35,10 +31,13 @@
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
-; seeing the fetched commits
+; fetched commits
 [alias]
-  ; better than `whatchanged`
 	wc = log ORIG_HEAD.. --stat --no-merges
+
+; whats new
+[alias]
+  yd = diff "@{yesterday}"
 
 ; danger!
 [alias]
