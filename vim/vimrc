@@ -7,14 +7,14 @@ filetype off
 
 " key bindings
 " F1 HELP
-" F2 Paste Mode Toggle
-" F3 NerdTree Toggle
-" F4 Gundo Toggle
+" F2 Paste Mode
+" F3 NerdTree
+" F4 Gundo
 " F5 CoffeeWatch
-" F6 Relative Number Toggle
-" F7 Line wrapping toggle
-" F8 Search Ignore Case Toggle
-" F9 Incremental Search Toggle
+" F6 Relative Number
+" F7 Line Wrapping
+" F8 Search Ignore Case
+" F9 Semantic Highlight
 " F10 Autoformat
 
 " note: vim works only with posix shells
@@ -100,6 +100,10 @@ Plugin 'editorconfig/editorconfig-vim'
 " https://github.com/sheerun/vim-polyglot
 Plugin 'sheerun/vim-polyglot'
 
+" semantic variables highlight
+" https://github.com/jaxbot/semantic-highlight.vim
+Plugin 'jaxbot/semantic-highlight.vim'
+
 " match xml tags
 " https://github.com/gregsexton/MatchTag
 " Plugin 'gregsexton/MatchTag'
@@ -176,7 +180,7 @@ map <F7> :set wrap! nowrap?<CR>
 nmap <F8> :set ignorecase! ignorecase?<Cr>
 
 " toggle incremental search
-nmap <F9> :set incsearch! incsearch?<CR>
+nmap <F9> :SemanticHighlightToggle<CR>
 
 " autoformat
 noremap <F10> :Autoformat<CR><CR>
@@ -286,7 +290,7 @@ let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#show_tab_type = 1
 let g:airline#extensions#tabline#formatter = 'default'
 " :help filename-modifiers
-let g:airline#extensions#tabline#fnamemod = ':s?NERD_tree_2?tree?:s?ControlP?open?:t:.'
+let g:airline#extensions#tabline#fnamemod = ':s?NERD_tree_1?tree?:s?ControlP?open?:t:.'
 let g:airline#extensions#tabline#fnamecollapse = 1
 let g:airline#extensions#tabline#fnametruncate = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
@@ -358,11 +362,11 @@ let g:ctrlp_custom_ignore = {
 
 " open automatically when vim starts up
 "   if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0
+au StdinReadPre * let s:std_in=1
+au VimEnter * if argc() == 0
   \ && !exists("s:std_in") | NERDTree | endif
 
-autocmd bufenter * if (winnr("$") == 1
+au bufenter * if (winnr("$") == 1
   \ && exists("b:NERDTree")
   \ && b:NERDTree.isTabTree()) | q | endif
 
@@ -437,6 +441,37 @@ autocmd FileType nerdtree setlocal nolist
 
 source ~/.vim/config/nerdtree.vim
 
+" semantic hilight
+
+let s:semanticGUIColors = [
+  \ '#72d572', '#c5e1a5',
+  \ '#e6ee9c', '#fff59d',
+  \ '#ffe082', '#ffcc80',
+  \ '#ffab91', '#bcaaa4',
+  \ '#b0bec5', '#ffa726',
+  \ '#ff8a65', '#f9bdbb',
+  \ '#f9bdbb', '#f8bbd0',
+  \ '#e1bee7', '#d1c4e9',
+  \ '#ffe0b2', '#c5cae9',
+  \ '#d0d9ff', '#b3e5fc',
+  \ '#b2ebf2', '#b2dfdb',
+  \ '#a3e9a4', '#dcedc8',
+  \ '#f0f4c3', '#ffb74d'
+  \ ]
+
+let g:semanticTermColors = [
+  \ 28, 1, 2, 3, 4, 5, 6, 7,
+  \ 25, 9, 10, 34, 12, 13,
+  \ 14, 15, 16, 125, 124, 19
+  \ ]
+
+au FileType coffee,javascript,python,ruby
+  \ :SemanticHighlight
+
+nmap <Leader>s :SemanticHighlight<CR>
+
+let g:semanticBlacklistOverride = {}
+
 " tmuxline
 let g:tmuxline_preset = 'adrian'
 
@@ -444,13 +479,13 @@ let g:tmuxline_preset = 'adrian'
 let g:airline#extensions#tmuxline#enabled = 0
 
 " filetypes
-autocmd BufNewFile,BufRead .eslintrc set filetype=json
+au BufNewFile,BufRead .eslintrc set ft=json
 
-autocmd BufNewFile,BufRead *dircolors set filetype=dircolors
-autocmd BufNewFile,BufRead *.conf set filetype=tmux
+au BufNewFile,BufRead *dircolors set ft=dircolors
+au BufNewFile,BufRead *.conf set ft=tmux
 
-autocmd BufNewFile,BufRead *.scss.liquid set filetype=scss
-autocmd BufNewFile,BufRead *.js.liquid set filetype=javascript
+au BufNewFile,BufRead *.scss.liquid set ft=scss
+au BufNewFile,BufRead *.js.liquid set ft=javascript
 
 au bufnewfile,bufread *editorconfig set ft=dosini
 au bufnewfile,bufread *ackrc set ft=dosini
