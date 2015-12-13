@@ -42,7 +42,8 @@ brew 'hub'
 brew 'brew-gem'
 brew 'htop-osx'
 brew 'tree'
-brew 'coreutils' # gnu utils
+brew 'coreutils'  # gnu utils
+brew 'ngrep'      # network grep
 
 # tools
 brew 'editorconfig'
