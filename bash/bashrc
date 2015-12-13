@@ -1,33 +1,58 @@
+# bashrc file
+# ~/.bashrc
+# Adrian Juszczak
+
+# case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob;
+
+# append to the Bash history file, rather than overwriting it
+shopt -s histappend;
+
+# autocorrect typos in path names when using `cd`
+shopt -s cdspell;
+
+# enable some Bash 4 features when possible:
+# * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
+# * recursive globbing, e.g. `echo **/*.txt`
+for option in autocd globstar; do
+	shopt -s "$option" 2> /dev/null;
+done;
+
 # set prompt
-prompt=~/.bash/prompt/promptline.sh
+prompt=$HOME/.bash/prompt/promptline.sh
 if [ -f $prompt ]; then
   source $prompt
 fi
+unset prompt;
 
 # set completions
 completions=$(brew --prefix)/etc/bash_completion
 if [ -f $completions ]; then
   source $completions
 fi
+unset completions;
+
+# set completion for ssh hostnames
+sshconfig=$HOME/.ssh/config
+[ -e "$sshconfig" ] && \
+  complete -o "default" -o "nospace" \
+  -W "$(grep "^Host" $sshconfig | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" \
+  scp sftp ssh;
+unset sshconfig;
 
 # set marks
-marks=~/.bash/marks/marks.sh
+marks=$HOME/.bash/marks/marks.sh
 if [ -f $marks ]; then
   source $marks
 fi
+unset marks;
 
-# gnu environmen
-# PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-# MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-
-dircolors=~/.dircolors
-if [ -f $dircolors ]; then
-  eval `gdircolors -b $dircolors`
+# set gnu ls
+gls=$HOME/.bash/utils/gls.sh
+if [ -f $gls ]; then
+  source $gls
 fi
-
-alias ls="gls --color=always"
-alias grep="grep --color=always"
-alias egrep="egrep --color=always"
+unset gls;
 
 # set vi mode
 set -o vi
