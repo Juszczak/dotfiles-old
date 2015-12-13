@@ -1,6 +1,6 @@
 " ~/.vimr
 " Adrian Juszczak
-" (https://github.com/juszczak/dotfiles)
+" (git.io/juszczak)
 
 set nocompatible
 filetype off
@@ -451,3 +451,7 @@ autocmd BufNewFile,BufRead *.conf set filetype=tmux
 
 autocmd BufNewFile,BufRead *.scss.liquid set filetype=scss
 autocmd BufNewFile,BufRead *.js.liquid set filetype=javascript
+
+au bufnewfile,bufread *editorconfig set ft=dosini
+au bufnewfile,bufread *ackrc set ft=dosini
+au bufnewfile,bufread *npmrc set ft=dosini
