@@ -1,1 +1,3 @@
 --type-add=ts=.ts
+
+--pager="less -FRNX"
