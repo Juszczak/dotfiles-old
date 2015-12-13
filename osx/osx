@@ -1,0 +1,297 @@
+#!/usr/bin/env bash
+
+# osx sane defaults
+# ~/.osx
+# Adrian Juszczak
+# https://github.com/juszczak/dotfiles
+# mostly stolen from @mathiasbynens
+
+sudo -v
+
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# ui/ux
+
+# set standby delay to 24 hours (default is 1 hour)
+sudo pmset -a standbydelay 86400
+
+# disable transparency in the menu bar and elsewhere on El Capitan
+defaults write com.apple.universalaccess reduceTransparency -bool true
+
+# set scrollbars (possible values: `WhenScrolling`, `Automatic` and `Always`)
+defaults write NSGlobalDomain AppleShowScrollBars -string "Automatic"
+
+# increase window resize speed for Cocoa applications
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+# expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+# automatically quit printer app once the print jobs complete
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+# disable the `Are you sure you want to open this application?` dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# remove duplicates in the “Open With” menu (also see `lscleanup` alias)
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister 
+  \ -kill -r -domain local -domain system -domain user
+
+# set automatic termination of inactive apps
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool false
+
+# set Help Viewer windows to non-floating mode
+defaults write com.apple.helpviewer DevMode -bool true
+
+# restart automatically if the computer freezes
+sudo systemsetup -setrestartfreeze on
+
+# check for software updates daily, not just once per week
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+# disable smart quotes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# disable smart dashes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# trackpad
+
+# enable tap to click for this user and for the login screen
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+
+# Clicking = 1;
+# DragLock = 0;
+# HIDScrollZoomModifierMask = 262144;
+# TrackpadCornerSecondaryClick = 0;
+# TrackpadFiveFingerPinchGesture = 2;
+# TrackpadFourFingerHorizSwipeGesture = 2;
+# TrackpadFourFingerPinchGesture = 2;
+# TrackpadFourFingerVertSwipeGesture = 2;
+# TrackpadHandResting = 1;
+# TrackpadHorizScroll = 1;
+# TrackpadMomentumScroll = 1;
+# TrackpadPinch = 1;
+# TrackpadRightClick = 1;
+# TrackpadRotate = 1;
+# TrackpadScroll = 1;
+# TrackpadThreeFingerDrag = 0;
+# TrackpadThreeFingerHorizSwipeGesture = 0;
+# TrackpadThreeFingerTapGesture = 0;
+# TrackpadThreeFingerVertSwipeGesture = 0;
+# TrackpadTwoFingerDoubleTapGesture = 1;
+# TrackpadTwoFingerFromRightEdgeSwipeGesture = 3;
+# USBMouseStopsTrackpad = 0;
+
+# keyboard
+
+# enable full keyboard access for all controls
+# (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# use scroll gesture with the Ctrl (^) modifier key to zoom
+defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+
+# follow the keyboard focus while zoomed in
+defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+
+# disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# i18n
+
+defaults write NSGlobalDomain AppleLanguages -array "en" "pl" "ru" "de" "el" "zh-Hans"
+defaults write NSGlobalDomain AppleLocale -string "en_PL@currency=PLN"
+defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
+defaults write NSGlobalDomain AppleMetricUnits -bool true
+
+sudo systemsetup -settimezone "Europe/Warsaw" > /dev/null
+
+# disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# stop iTunes from responding to the keyboard media keys
+launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+
+# screen
+
+# require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+# save screenshots to the desktop
+defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+
+# save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
+
+# set shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool false
+
+# enable subpixel font rendering on non-Apple LCDs
+defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
+# finder
+
+# allow quitting via ⌘ + Q; doing so will also hide desktop icons
+defaults write com.apple.finder QuitMenuItem -bool true
+
+# show icons for hard drives, servers, and removable media on the desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+# show hidden files by default
+# defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Finder: show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# search the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# enable spring loading for directories
+# defaults write NSGlobalDomain com.apple.springing.enabled -bool true
+
+# remove the spring loading delay for directories
+# defaults write NSGlobalDomain com.apple.springing.delay -float 0
+
+# avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# automatically open a new Finder window when a volume is mounted
+defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
+
+# Use column view in all Finder windows by default (modes: `icnv`, `Nlsv`, `clmv`, `Flwv`)
+defaults write com.apple.finder FXPreferredViewStyle -string "clsv"
+
+# enable AirDrop over Ethernet and on unsupported Macs running Lion
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+
+# show the ~/Library folder
+chflags nohidden ~/Library
+
+# expand the following File Info panes:
+# “General”, “Open with”, and “Sharing & Permissions”
+defaults write com.apple.finder FXInfoPanesExpanded -dict \
+	General -bool true \
+	OpenWith -bool true \
+	Privileges -bool true
+
+# dock
+
+# set the icon size of Dock items
+defaults write com.apple.dock tilesize -int 46
+
+# minimize windows into their application’s icon
+defaults write com.apple.dock minimize-to-application -bool true
+
+# show indicator lights for open applications in the Dock
+defaults write com.apple.dock show-process-indicators -bool true
+
+# Wipe all (default) app icons from the Dock
+# defaults write com.apple.dock persistent-apps -array
+
+# Show only open applications in the Dock
+# defaults write com.apple.dock static-only -bool true
+
+# speed up Mission Control animations
+# defaults write com.apple.dock expose-animation-duration -float 0.1
+
+# disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+# don’t show Dashboard as a Space
+defaults write com.apple.dock dashboard-in-overlay -bool true
+
+# don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+# automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Make Dock icons of hidden applications translucent
+defaults write com.apple.dock showhidden -bool true
+
+# disable the Launchpad gesture (pinch with thumb and three fingers)
+# defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
+
+# webkit
+
+# privacy: don’t send search queries to Apple
+defaults write com.apple.Safari UniversalSearchEnabled -bool false
+defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+
+# enable the Develop menu and the Web Inspector in Safari
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+
+# add a context menu item for showing the Web Inspector in web views
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# terminal
+
+# only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
+# time machine
+
+# prevent Time Machine from prompting to use new hard drives as backup volume
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+# activity monitor
+
+# show the main window when launching Activity Monitor
+defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
+
+# visualize CPU usage in the Activity Monitor Dock icon
+defaults write com.apple.ActivityMonitor IconType -int 5
+
+# show all processes in Activity Monitor
+defaults write com.apple.ActivityMonitor ShowCategory -int 0
+
+# sort Activity Monitor results by CPU usage
+defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
+defaults write com.apple.ActivityMonitor SortDirection -int 0
+
+# Mac App Store                                                               #
+
+# enable the WebKit Developer Tools in the Mac App Store
+defaults write com.apple.appstore WebKitDeveloperExtras -bool true
+
+# enable Debug Menu in the Mac App Store
+defaults write com.apple.appstore ShowDebugMenu -bool true
+
+# end
+for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
+	"Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
+	"Opera" "Safari" "Spectacle" "SystemUIServer" "Terminal"; do
+	killall "${app}" &> /dev/null
+done
+
+echo "Done."
