@@ -1,0 +1,7 @@
+# brew nightly updates
+0 0 * * *  brew update
+10 0 * * *  brew upgrade
+
+# npm nightly updates
+20 0 * * *  npm update npm -g
+30 0 * * *  npm update -g
