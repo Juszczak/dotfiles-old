@@ -11,6 +11,6 @@ if [ -f $dircolors ]; then
   eval `gdircolors -b $dircolors`
 fi
 
-alias ls="gls --color=always -F"
+alias ls="gls --color=always -F -I \"Icon\""
 alias grep="grep --color=always"
 alias egrep="egrep --color=always"
