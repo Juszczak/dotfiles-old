@@ -1,6 +1,7 @@
 " vim color file
 " 
 " Author: Adrian Juszczak
+" (https://git.io/dotfiles)
 "
 " Note:
 " * some colors from `vitamins.vim` by Henrique C. Alves
@@ -70,7 +71,7 @@ hi Question                                                   ctermfg=65    cter
 
 hi Title          guibg=NONE      guifg=#f6f3e8   gui=bold
 " ^M
-hi SpecialKey     guibg=#343434   guifg=#808080   gui=none
+hi SpecialKey     guibg=NONE      guifg=#585858   gui=none    ctermfg=240   ctermbg=NONE  cterm=NONE
 hi WarningMsg	    guifg=#ef5939
 
 if version >= 700
@@ -202,75 +203,22 @@ hi spellRare    guisp=#fcaf3e
 hi spellLocal   guisp=#729fcf
 " }}}
 
-" TODO: TabLine, TabLineFill, TabLineSel
-" {{{ tabs (non-gui0)
-hi TabLine		      guibg=#d0d0d0 guifg=#444444   gui=none    ctermbg=252   ctermfg=238
-hi TabLineFill	    guibg=#d0d0d0 guifg=#444444   gui=none    ctermbg=252   ctermfg=238
-hi TabLineSel	                    guifg=#444444   gui=bold    ctermbg=252   ctermfg=238
-" }}}
-
-" TODO: ALL
-" {{{ ctrlp
-" Highlighting:~
-" * For the CtrlP buffer:
-"     CtrlPNoEntries : the message when no match is found (Error)
-"     CtrlPMatch     : the matched pattern (Identifier)
-"     CtrlPLinePre   : the line prefix '>' in the match window
-"     CtrlPPrtBase   : the prompt's base (Comment)
-"     CtrlPPrtText   : the prompt's text (|hl-Normal|)
-"     CtrlPPrtCursor : the prompt's cursor when moving over the text (Constant)
-"
-" * In extensions:
-"     CtrlPTabExtra  : the part of each line that's not matched against (Comment)
-"     CtrlPBufName   : the buffer name an entry belongs to (|hl-Directory|)
-"     CtrlPTagKind   : the kind of the tag in buffer-tag mode (|hl-Title|)
-"     CtrlPqfLineCol : the line and column numbers in quickfix mode (Comment)
-"     CtrlPUndoT     : the elapsed time in undo mode (|hl-Directory|)
-"     CtrlPUndoBr    : the square brackets [] in undo mode (Comment)
-"     CtrlPUndoNr    : the undo number inside [] in undo mode (String)
-"     CtrlPUndoSv    : the point where the file was saved (Comment)
-"     CtrlPUndoPo    : the current position in the undo tree (|hl-Title|)
-"     CtrlPBookmark  : the name of the bookmark (Identifier)
-"
-" Statuslines:~
-" * Highlight groups:
-"     CtrlPMode1 : 'file' or 'path' or 'line', and the current mode (Character)
-"     CtrlPMode2 : 'prt' or 'win', 'regex', the working directory (|hl-LineNr|)
-"     CtrlPStats : the scanning status (Function)
-" }}}
-
-" TODO: ALL
-" {{{ syntastic
-" hi SyntasticErrorSign 
-" hi SyntasticWarningSign
-" links to 'SyntasticErrorSign' by default
-" hi SyntasticStyleErrorSign
-" links to 'SyntasticWarningSign' by default
-" hi SyntasticStyleWarningSign
-" hi SyntasticErrorLine 					guibg=#800000
-" hi SyntasticWarningLine					guibg=#808000
-" links to 'SyntasticErrorLine' by default
-" hi SyntasticStyleErrorLine
-" links to 'SyntasticWarningLine' by default
-" hi SyntasticStyleWarningLine
-" }}}
-
 " {{{ nerdtree basic
 
-hi NERDTreeCWD                  guibg=NONE guifg=#87d700 ctermbg=NONE ctermfg=112
-hi NERDTreeExecFile             guibg=NONE guifg=#87ff00 ctermbg=NONE ctermfg=118
-hi NERDTreeFile                 guibg=NONE guifg=#d0d0d0 ctermbg=NONE ctermfg=252
-hi NERDTreeDir                  guibg=NONE guifg=#af875f ctermbg=NONE ctermfg=137
-hi NERDTreeDirSlash             guibg=NONE guifg=#ff5d28 ctermbg=NONE ctermfg=202
+hi NERDTreeCWD                  guibg=NONE guifg=#87d700 gui=NONE ctermbg=NONE ctermfg=112 cterm=NONE
+hi NERDTreeExecFile             guibg=NONE guifg=#87ff00 gui=NONE ctermbg=NONE ctermfg=118 cterm=NONE
+hi NERDTreeFile                 guibg=NONE guifg=#d0d0d0 gui=NONE ctermbg=NONE ctermfg=252 cterm=NONE
+hi NERDTreeDir                  guibg=NONE guifg=#af875f gui=NONE ctermbg=NONE ctermfg=137 cterm=bold
+hi NERDTreeDirSlash             guibg=NONE guifg=#ff5d28 gui=NONE ctermbg=NONE ctermfg=202 cterm=NONE
 
-hi NERDTreeBookmarkName         guibg=NONE guifg=#ff5d28 ctermbg=NONE ctermfg=202
+hi NERDTreeBookmarkName         guibg=NONE guifg=#ff5d28 gui=NONE ctermbg=NONE ctermfg=202 cterm=NONE
 
-hi NERDTreeLinkFile             guibg=NONE guifg=#0087d7 ctermbg=NONE ctermfg=032
-hi NERDTreeLinkDir              guibg=NONE guifg=#af875f ctermbg=NONE ctermfg=137
-hi NERDTreeLinkTarget           guibg=NONE guifg=#cdd129 ctermbg=NONE ctermfg=184
+hi NERDTreeLinkFile             guibg=NONE guifg=#0087d7 gui=NONE ctermbg=NONE ctermfg=032 cterm=NONE
+hi NERDTreeLinkDir              guibg=NONE guifg=#af875f gui=NONE ctermbg=NONE ctermfg=137 cterm=NONE
+hi NERDTreeLinkTarget           guibg=NONE guifg=#cdd129 gui=NONE ctermbg=NONE ctermfg=184 cterm=NONE
 
-hi NERDTreeOpenable             guibg=NONE guifg=#87d700 ctermbg=NONE ctermfg=112
-hi NERDTreeClosable             guibg=NONE guifg=#87d700 ctermbg=NONE ctermfg=112
+hi NERDTreeOpenable             guibg=NONE guifg=#87d700 gui=NONE ctermbg=NONE ctermfg=112 cterm=NONE
+hi NERDTreeClosable             guibg=NONE guifg=#87d700 gui=NONE ctermbg=NONE ctermfg=112 cterm=NONE
 
 " }}}
 
@@ -335,6 +283,72 @@ au FileType nerdtree hi license guibg=NONE guifg=#8f8f8f ctermbg=NONE ctermfg=24
 
 " *.node
 au FileType nerdtree hi node    guibg=NONE guifg=#80bd01 ctermbg=NONE ctermfg=076
+
+" }}}
+
+" TODO: TabLine, TabLineFill, TabLineSel
+" {{{ tabs (non-gui0)
+hi TabLine		      guibg=#d0d0d0 guifg=#444444   gui=none    ctermbg=252   ctermfg=238
+hi TabLineFill	    guibg=#d0d0d0 guifg=#444444   gui=none    ctermbg=252   ctermfg=238
+hi TabLineSel	                    guifg=#444444   gui=bold    ctermbg=252   ctermfg=238
+" }}}
+
+" TODO: ALL
+" {{{ ctrlp
+" Highlighting:~
+" * For the CtrlP buffer:
+"     CtrlPNoEntries : the message when no match is found (Error)
+"     CtrlPMatch     : the matched pattern (Identifier)
+"     CtrlPLinePre   : the line prefix '>' in the match window
+"     CtrlPPrtBase   : the prompt's base (Comment)
+"     CtrlPPrtText   : the prompt's text (|hl-Normal|)
+"     CtrlPPrtCursor : the prompt's cursor when moving over the text (Constant)
+"
+" * In extensions:
+"     CtrlPTabExtra  : the part of each line that's not matched against (Comment)
+"     CtrlPBufName   : the buffer name an entry belongs to (|hl-Directory|)
+"     CtrlPTagKind   : the kind of the tag in buffer-tag mode (|hl-Title|)
+"     CtrlPqfLineCol : the line and column numbers in quickfix mode (Comment)
+"     CtrlPUndoT     : the elapsed time in undo mode (|hl-Directory|)
+"     CtrlPUndoBr    : the square brackets [] in undo mode (Comment)
+"     CtrlPUndoNr    : the undo number inside [] in undo mode (String)
+"     CtrlPUndoSv    : the point where the file was saved (Comment)
+"     CtrlPUndoPo    : the current position in the undo tree (|hl-Title|)
+"     CtrlPBookmark  : the name of the bookmark (Identifier)
+"
+" Statuslines:~
+" * Highlight groups:
+"     CtrlPMode1 : 'file' or 'path' or 'line', and the current mode (Character)
+"     CtrlPMode2 : 'prt' or 'win', 'regex', the working directory (|hl-LineNr|)
+"     CtrlPStats : the scanning status (Function)
+" }}}
+
+" TODO: ALL
+" {{{ syntastic
+" hi SyntasticErrorSign
+" hi SyntasticWarningSign
+" links to 'SyntasticErrorSign' by default
+" hi SyntasticStyleErrorSign
+" links to 'SyntasticWarningSign' by default
+" hi SyntasticStyleWarningSign
+" hi SyntasticErrorLine 					guibg=#800000
+" hi SyntasticWarningLine					guibg=#808000
+" links to 'SyntasticErrorLine' by default
+" hi SyntasticStyleErrorLine
+" links to 'SyntasticWarningLine' by default
+" hi SyntasticStyleWarningLine
+" }}}
+
+" TODO:
+" {{{ nerdtree other
+
+" hi def link NERDTreeGitStatusModified Special
+" hi def link NERDTreeGitStatusStaged Function
+" hi def link NERDTreeGitStatusRenamed Title
+" hi def link NERDTreeGitStatusUnmerged Label
+" hi def link NERDTreeGitStatusUntracked Comment
+" hi def link NERDTreeGitStatusDirDirty Tag
+" hi def link NERDTreeGitStatusDirClean DiffAdd
 
 " }}}
 

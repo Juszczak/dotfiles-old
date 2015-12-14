@@ -13,7 +13,7 @@ filetype off
 " F5 CoffeeWatch
 " F6 Relative Number
 " F7 Line Wrapping
-" F8 Search Ignore Case
+" F8 Show Tabs as chars
 " F9 Semantic Highlight
 " F10 Autoformat
 
@@ -184,8 +184,8 @@ nmap <F6> :set relativenumber! relativenumber?<Cr>
 " toggle lines wrapping
 map <F7> :set wrap! nowrap?<CR>
 
-" toggle case  sensitive/insensitive search
-nmap <F8> :set ignorecase! ignorecase?<Cr>
+" toggle tabs as chars
+nmap <F8> :set list! list?<Cr>
 
 " toggle incremental search
 nmap <F9> :SemanticHighlightToggle<CR>
@@ -265,6 +265,11 @@ set noswapfile
 
 " set the file name as terminal title
 set titlestring=%f title
+
+" mark tabs as dots
+set list  "(+=)
+set listchars=
+  \tab:·\ 
 
 " set osx' clipboard
 " set clipboard=unnamed
@@ -475,7 +480,7 @@ let g:semanticTermColors = [
   \ 14, 15, 16, 125, 124, 19
   \ ]
 
-au FileType coffee,javascript,python,ruby
+au FileType coffee,javascript,typescript,python,ruby
   \ :SemanticHighlight
 
 nmap <Leader>s :SemanticHighlight<CR>
