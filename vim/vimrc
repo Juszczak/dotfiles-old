@@ -130,6 +130,14 @@ Plugin 'edkolev/promptline.vim'
 " https://github.com/bfontaine/Brewfile.vim
 Plugin 'bfontaine/Brewfile.vim'
 
+" misc auto load scripts
+" https://github.com/xolox/vim-misc
+Plugin 'xolox/vim-misc'
+
+" notes in vim
+" https://github.com/xolox/vim-notes
+Plugin 'xolox/vim-notes'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -375,7 +383,10 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeMinimalUI = 1
 
-let g:NERDTreeIgnore = ['\.DS_Store$', '\~$']
+let g:NERDTreeIgnore = [
+  \ '\.DS_Store$',
+  \ '\Icon$',
+  \ '\~$']
 
 " nerdtreetabs
 let g:nerdtree_tabs_open_on_new_tab = 1
@@ -477,7 +488,14 @@ let g:tmuxline_preset = 'adrian'
 " do not overwrite tmux theme
 let g:airline#extensions#tmuxline#enabled = 0
 
-" filetypes
+let g:notes_directories = [
+  \ '~/Dropbox/Notes'
+  \ ]
+
+let g:notes_unicode_enabled = 1
+let g:notes_suffix = '.md'
+
+" filetypes events
 au BufNewFile,BufRead .eslintrc set ft=json
 
 au BufNewFile,BufRead *dircolors set ft=dircolors
