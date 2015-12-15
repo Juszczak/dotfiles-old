@@ -298,3 +298,13 @@
 # yaml
 # http://yaml.org/
 --type-add=yaml:ext:yaml,yml
+
+# frameworks
+
+# angular
+# http://angular.io
+--type-add=ng:ext:html
+--type-add=ng:ext:js
+--type-add=ng:ext:json
+--type-add=ng:ext:styl
+--type-add=ng:ext:ts
