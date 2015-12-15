@@ -15,7 +15,12 @@
 --ignore-directory=is:.git
 
 # npm
+# https://www.npmjs.com/
 --ignore-directory=is:node_modules
+
+# bower
+# http://bower.io/
+--ignore-directory=is:bower_components
 
 # perl
 --ignore-directory=is:blib
