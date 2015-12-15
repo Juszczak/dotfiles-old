@@ -1,3 +1,8 @@
+# ackrc file
+# ~/.ackrc
+# Adrian Juszczak
+# https://git.io/juszczak
+
 # ignore dirs
 
 # git
@@ -276,6 +281,10 @@
 # tcl
 # http://www.tcl.tk/
 --type-add=tcl:ext:tcl,itcl,itk
+
+# typescript
+# http://www.typescriptlang.org/
+--type-add=ts:ext:ts
 
 # vim
 # http://www.vim.org/
