@@ -3,6 +3,11 @@
 # Adrian Juszczak
 # https://git.io/juszczak
 
+# pager
+--pager=less -FRX
+
+--smart-case
+
 # ignore dirs
 
 # git
