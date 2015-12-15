@@ -1,7 +1,12 @@
-# brew nightly updates
-0 0 * * *  brew update
-10 0 * * *  brew upgrade
+# nightly updates
 
-# npm nightly updates
-20 0 * * *  npm update npm -g
-30 0 * * *  npm update -g
+# brew
+0 0 * * *   brew update
+0 0 * * *   brew upgrade
+
+# npm
+0 0 * * *   npm update npm -g
+0 0 * * *   npm update -g
+
+# vim plugins
+0 0 * * *   vim -c PluginUpdate
