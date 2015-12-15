@@ -512,3 +512,5 @@ au BufNewFile,BufRead *.js.liquid set ft=javascript
 au bufnewfile,bufread *editorconfig set ft=dosini
 au bufnewfile,bufread *ackrc set ft=dosini
 au bufnewfile,bufread *npmrc set ft=dosini
+
+au bufnewfile,bufread *gemrc set ft=yaml
