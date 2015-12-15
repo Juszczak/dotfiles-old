@@ -166,6 +166,10 @@
 # http://groovy.codehaus.org/
 --type-add=groovy:ext:groovy,gtmpl,gpp,grunit,gradle
 
+# handlebars
+# http://handlebarsjs.com/
+--type-add=hbs:ext:hbs
+
 # haskell
 # http://www.haskell.org/
 --type-add=haskell:ext:hs,lhs
@@ -304,7 +308,10 @@
 # angular
 # http://angular.io
 --type-add=ng:ext:html
---type-add=ng:ext:js
---type-add=ng:ext:json
 --type-add=ng:ext:styl
 --type-add=ng:ext:ts
+
+# backbone
+# http://backbonejs.org/
+--type-add=bb:ext:coffee
+--type-add=bb:ext:hbs
