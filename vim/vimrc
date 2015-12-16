@@ -11,9 +11,9 @@ filetype off
 " F3 NerdTree
 " F4 Gundo
 " F5 CoffeeWatch
-" F6 Relative Number
+" F6 Cursor Column
 " F7 Line Wrapping
-" F8 Show Tabs as chars
+" F8 Tabs as chars
 " F9 Semantic Highlight
 " F10 Autoformat
 
@@ -178,8 +178,8 @@ nmap <F3> :NERDTreeTabsToggle<cr>
 " toggle gundo
 nmap <F4> :GundoToggle<CR>
 
-" toggle relative numbers
-nmap <F6> :set relativenumber! relativenumber?<Cr>
+" toggle cursor column
+nmap <F6> :set cursorcolumn! cursorcolumn?<Cr>
 
 " toggle lines wrapping
 map <F7> :set wrap! nowrap?<CR>
@@ -247,7 +247,7 @@ set backspace=indent,eol,start
 " indent settings
 set shiftwidth=2
 set tabstop=2
-set expandtab
+" set expandtab
 
 " line numbers
 set number
