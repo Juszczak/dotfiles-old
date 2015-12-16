@@ -1,5 +1,7 @@
+; git configuration file
 ; ~/.gitconfig
-; Adrian Juszczak (https://github.com/juszczak/dotfiles)
+; Adrian Juszczak
+; https://git.io/juszczak
 
 [user]
 	name = Adrian Juszczak
