@@ -1,4 +1,8 @@
-root = false
+# editorconfig.org
+# Adrian Juszczak
+# https://git.io/juszczak
+
+root = true
 
 [*]
 charset = utf-8
