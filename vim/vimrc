@@ -10,7 +10,7 @@ filetype off
 " F2 Paste Mode
 " F3 NerdTree
 " F4 Gundo
-" F5 CoffeeWatch
+" F5 Spell checker
 " F6 Cursor Column
 " F7 Line Wrapping
 " F8 Tabs as chars
@@ -150,6 +150,14 @@ imap jj <esc>
 " quick search
 nmap <space><space> /
 
+" move inside wrapped lines
+" + center cursorline
+nnoremap j gjzz
+nnoremap k gkzz
+
+" center cursorline after next search
+nnoremap n nzz
+
 " easier window navigation with hjkl
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
@@ -177,6 +185,9 @@ nmap <F3> :NERDTreeTabsToggle<cr>
 
 " toggle gundo
 nmap <F4> :GundoToggle<CR>
+
+" toggle spellchecker
+nmap <F5> :set spell! spell?<Cr>
 
 " toggle cursor column
 nmap <F6> :set cursorcolumn! cursorcolumn?<Cr>
@@ -226,6 +237,25 @@ set hlsearch
 " clear search hl
 nnoremap <CR> :noh<CR><CR>
 
+set viewoptions=
+	\folds,
+	\options,
+	\cursor,
+	\unix,
+	\slash
+
+" allow for cursor beyond last character
+" set virtualedit=onemore
+
+"  ton of history (default is 20)
+set history=1000
+
+" no spellchecking by default
+set nospell
+
+" buffer switching without saving
+set hidden
+
 " ignore case if search pattern is all lowercase
 set smartcase
 
@@ -234,6 +264,7 @@ set autowrite
 
 " show matching brackets
 set showmatch
+set matchtime=0
 
 " enable mouse in all modes
 set mouse=a
@@ -498,7 +529,7 @@ let g:notes_directories = [
   \ ]
 
 let g:notes_unicode_enabled = 1
-let g:notes_suffix = '.md'
+let g:notes_suffix = '.note'
 
 " filetypes events
 au BufNewFile,BufRead .eslintrc set ft=json
@@ -509,8 +540,10 @@ au BufNewFile,BufRead *.conf set ft=tmux
 au BufNewFile,BufRead *.scss.liquid set ft=scss
 au BufNewFile,BufRead *.js.liquid set ft=javascript
 
-au bufnewfile,bufread *editorconfig set ft=dosini
-au bufnewfile,bufread *ackrc set ft=dosini
-au bufnewfile,bufread *npmrc set ft=dosini
+au BufNewFile,bufRead *editorconfig set ft=dosini
+au BufNewFile,bufRead *ackrc set ft=dosini
+au BufNewFile,bufRead *npmrc set ft=dosini
 
-au bufnewfile,bufread *gemrc set ft=yaml
+au BufNewFile,BufRead *gemrc set ft=yaml
+
+au BufNewFile,BufRead *jsx set ft=typescript

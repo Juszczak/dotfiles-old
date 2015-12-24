@@ -84,6 +84,7 @@ MISSING         00              # file orphant points to
 MULTIHARDLINK   00              # regular file with more than one link
 
 .ts             01;38;5;033     # typescript
+.tsx            01;38;5;033     # typescript ext
 .spec.ts        01;38;5;098     # specs
 .styl           01;38;5;083     # stylus
 .js             01;38;5;227     # javascript

@@ -83,14 +83,14 @@ hi Directory                      guifg=#af875f   gui=none                  cter
 " }}}
 
 " {{{ syntax groups
-hi Comment                        guifg=#808080   gui=italic                ctermfg=244
+hi Comment												guifg=#808080 	gui=italic                ctermfg=244
 
-hi Constant                       guifg=#008787   gui=none                  ctermfg=030
-  hi String                       guifg=#008700   gui=italic                ctermfg=028
-  hi Character                    guifg=#008700   gui=italic                ctermfg=028
-  hi Number                       guifg=#008787   gui=none                  ctermfg=030
-  hi Boolean                      guifg=#008700   gui=none                  ctermfg=028
-  hi Float                        guifg=#008700   gui=none                  ctermfg=028
+hi Constant 											guifg=#008787 	gui=none                  ctermfg=030
+	hi String 											guifg=#008700 	gui=italic                ctermfg=028
+	hi Character										guifg=#008700   gui=italic                ctermfg=028
+	hi Number 											guifg=#008787   gui=none                  ctermfg=030
+	hi Boolean											guifg=#008700   gui=none                  ctermfg=028
+	hi Float												guifg=#008700   gui=none                  ctermfg=028
 
 hi Identifier                     guifg=#ff5d28   gui=none                  ctermfg=202
   hi Function                     guifg=#cdd129   gui=none                  ctermfg=184

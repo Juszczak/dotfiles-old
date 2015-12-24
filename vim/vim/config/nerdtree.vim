@@ -31,7 +31,7 @@ let g:NERDTreeSortOrder = [
 " {{{ filetype colors definitions
 
 " *.ts
-au FileType nerdtree syn match ts #^\s\+.*ts$#
+au FileType nerdtree syn match ts #^\s\+.*tsx\?$#
 
 " *.spec.ts
 au FileType nerdtree syn match spects #^\s\+.*spec\.ts$#
