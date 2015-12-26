@@ -21,6 +21,7 @@
 	df = diff
 	dc = diff --cached
 	dt = difftool
+	mt = mergetool
 	lgp = log -p
 	who = shortlog -s --
 
