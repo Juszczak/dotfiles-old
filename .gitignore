@@ -1,3 +1,9 @@
 _todo
 *default*
 *example*
+
+# vim plugins
+vim/vim/bundle
+
+# tmux plugins
+tmux/tmux/plugins
