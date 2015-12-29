@@ -53,7 +53,8 @@
 ```
 git clone git@github.com:Juszczak/dotfiles.git ~/dotfiles; \
 cd ~/dotfiles; \
-$EDITOR Dotfile; \
+cp ./Dotfile ~/Dotfile; \
+vim ~/Dotfile; \
 perl link.pl
 ```
 

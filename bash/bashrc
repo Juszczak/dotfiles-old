@@ -1,6 +1,8 @@
-# bashrc file
 # ~/.bashrc
+# terminal config file
 # Adrian Juszczak
+# adrian@juszczak.io
+# https://git.io/juszczak
 
 # case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
