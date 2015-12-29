@@ -1,3 +1,9 @@
+# ~/Brewfile
+# homebrew formulas list
+# Adrian Juszczak
+# adrian@juszczak.io
+# https://git.io/juszczak
+
 cask_args appdir: '/Applications'
 
 tap 'caskroom/cask'
