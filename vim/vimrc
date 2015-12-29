@@ -1,6 +1,8 @@
 " ~/.vimr
+" vim configuration file
 " Adrian Juszczak
-" (git.io/juszczak)
+" adrian@juszczak.io
+" https://git.io/juszczak
 
 set nocompatible
 filetype off
@@ -151,9 +153,8 @@ imap jj <esc>
 nmap <space><space> /
 
 " move inside wrapped lines
-" + center cursorline
-nnoremap j gjzz
-nnoremap k gkzz
+nnoremap j gj
+nnoremap k gk
 
 " center cursorline after next search
 nnoremap n nzz
@@ -236,6 +237,7 @@ set hlsearch
 
 " clear search hl
 nnoremap <CR> :noh<CR><CR>
+nnoremap <ESC> :noh<CR>
 
 set viewoptions=
 	\folds,
