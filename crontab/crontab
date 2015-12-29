@@ -1,3 +1,9 @@
+# ~/.crontab
+# cron table file
+# Adrian Juszczak
+# adrian@juszczak.io
+# https://git.io/juszczak
+
 # nightly updates
 
 # brew
