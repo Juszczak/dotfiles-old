@@ -1,1 +1,8 @@
+# ~/.bash_profile
+# login config file
+# Adrian Juszczak
+# adrian@juszczak.io
+# https://git.io/juszczak
+
 [[ -s ~/.bashrc ]] && source ~/.bashrc
+

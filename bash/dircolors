@@ -1,7 +1,8 @@
-# gnu ls colors config
 # ~/.dircolors
+# gnu ls colors config
 # Adrian Juszczak
-# https://github.com/juszczak/dotfiles
+# adrian@juszczak.io
+# https://git.io/juszczak
 
 TERM Eterm
 TERM ansi
