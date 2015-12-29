@@ -1,6 +1,8 @@
 # ~/.inputrc
-# Adrian Juszczk (https://github.com/juszczak/dotfiles)
-# ref https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File-Syntax.html#Readline-Init-File-Syntax
+# readline config file
+# Adrian Juszczak
+# adrian@juszczak.io
+# https://git.io/juszczak
 
 # completion options
 set completion-ignore-case on
