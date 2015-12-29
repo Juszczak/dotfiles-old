@@ -1,6 +1,9 @@
 # ~/.gitignore
+# git ignore file
 # Adrian Juszczak
+# adrian@juszczak.io
 # https://git.io/juszczak
+
 
 # osx
 .DS_Store
