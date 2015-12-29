@@ -1,1 +1,51 @@
+# ~/.rsyncignore
+# rsync ignore file
+# Adrian Juszczak
+# adrian@juszczak.io
+# https://git.io/juszczak
+
+# osx
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+Icon
+
+# vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+# git
 .git
+.gitmodules
+
+# misc
+.npm
+.node_repl_history
+npm-debug.log*
+.bundle
+.rspec
+.sass-cache
+.rvmrc
+db/*.sqlite3
+log/*.log
+tmp/*
+tmp/pids/*
+tmp/sockets/*
+spec/reports/*
+tags
