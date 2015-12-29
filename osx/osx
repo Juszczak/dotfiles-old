@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-# osx sane defaults
 # ~/.osx
+# osx sane defaults
 # Adrian Juszczak
-# https://github.com/juszczak/dotfiles
+# adrian@juszczak.io
+# https://git.io/juszczak
+
 # mostly stolen from @mathiasbynens
 
 sudo -v
