@@ -1,5 +1,7 @@
-# editorconfig.org
+# ~/.editorconfig
+# http://editorconfig.org
 # Adrian Juszczak
+# adrian@juszczak.io
 # https://git.io/juszczak
 
 root = true
