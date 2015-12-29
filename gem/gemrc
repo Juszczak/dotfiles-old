@@ -1,3 +1,9 @@
+# ~/.gemrc
+# ruby gems config file
+# Adrian Juszczak
+# adrian@juszczak.io
+# https://git.io/juszczak
+
 ---
 :backtrace: false
 :bulk_threshold: 1000
