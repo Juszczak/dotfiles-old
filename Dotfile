@@ -1,0 +1,46 @@
+# ~/.Dotfile
+# one dotfile to rule them all
+# Adrian Juszczak
+# adrian@juszczak.io
+# https://git.io/juszczak
+
+backup 0
+
+link 'ackrc'
+
+link 'bash_profile'
+link 'bashrc'
+link 'bash/'
+link 'dircolors'
+
+link 'crontab'
+
+link 'curlrc'
+
+link 'editorconfig'
+
+link 'gemrc'
+
+link 'gitattributes'
+link 'gitconfig'
+link 'gitignore'
+
+link 'Brewfile'
+
+link 'inputrc'
+
+link 'npmrc'
+
+unlink 'osx'
+
+link 'rsyncignore'
+
+link 'screenrc'
+
+link 'tmux/'
+link 'tmux.conf'
+
+link 'vim/'
+link 'vimrc'
+
+link 'wgetrc'
