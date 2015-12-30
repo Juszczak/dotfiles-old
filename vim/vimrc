@@ -106,6 +106,10 @@ Plugin 'sheerun/vim-polyglot'
 " https://github.com/jaxbot/semantic-highlight.vim
 Plugin 'jaxbot/semantic-highlight.vim'
 
+" indent levels
+" https://github.com/nathanaelkane/vim-indent-guides
+Plugin 'nathanaelkane/vim-indent-guides'
+
 " match xml tags
 " https://github.com/gregsexton/MatchTag
 " Plugin 'gregsexton/MatchTag'
@@ -519,6 +523,9 @@ au FileType coffee,javascript,typescript,python,ruby
 nmap <Leader>s :SemanticHighlight<CR>
 
 let g:semanticBlacklistOverride = {}
+
+" indent guides
+let g:indent_guides_auto_colors = 0
 
 " tmuxline
 let g:tmuxline_preset = 'adrian'

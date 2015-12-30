@@ -196,7 +196,7 @@ hi GitGutterDeleteLine            guibg=#500000
 hi GitGutterChangeDeleteLine      guibg=#500000
 " }}}
 
-" {{{ Spelling
+" {{{ spelling
 hi spellBad     guisp=#fcaf3e
 hi spellCap     guisp=#73d216
 hi spellRare    guisp=#fcaf3e
@@ -283,6 +283,13 @@ au FileType nerdtree hi license guibg=NONE guifg=#8f8f8f ctermbg=NONE ctermfg=24
 
 " *.node
 au FileType nerdtree hi node    guibg=NONE guifg=#80bd01 ctermbg=NONE ctermfg=076
+
+" }}}
+
+" {{{ indent guides
+
+hi IndentGuidesOdd  guibg=#303030 guifg=#3a3a3a   gui=none    ctermbg=235   ctermfg=236
+hi IndentGuidesEven guibg=#3a3a3a guifg=#303030   gui=none    ctermbg=236   ctermfg=235
 
 " }}}
 
