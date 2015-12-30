@@ -25,13 +25,13 @@ print "🆒  hi $USER!\n";
 my $local_dotfile = "$PWD/Dotfile";
 my $global_dotfile = "/Users/$USER/Dotfile";
 
-copy ($local_dotfile, $global_dotfile)
-	or die "Creating Dotfile failed: $!";
+# copy ($local_dotfile, $global_dotfile)
+# 	or die "Creating Dotfile failed: $!";
 
-print
-		color ('reset') . "🚼  just created "
-	. color ('bold green') . "Dotfile"
-	. color ('reset') . " in /Users/$USER/\n";
+# print
+# 		color ('reset') . "🚼  just created "
+# 	. color ('bold green') . "Dotfile"
+# 	. color ('reset') . " in /Users/$USER/\n";
 
 open my $dotfile, '<', $global_dotfile;
 
@@ -93,11 +93,25 @@ sub link_dotfile {
 	}
 
 	sub link_file {
+		$local_path = $_[0];
+		$user_path = $_[1];
+
 		print
-				"\n"
-			. color ("bold green")
-			. "✅  $_[1] linked"
-			. color ("reset");
+			color("reset")
+			. "linking";
+
+		# $symlink_created = eval { symlink(, ""); 1 };
+
+		if ($symlink_created == 1) {
+			print
+					"\n"
+				. color ("bold green")
+				. "✅  $_[1] linked"
+				. color ("reset");
+		}
+		else {
+			print "error linking $user_path :("
+		}
 		# cmd
 		# print "ln -s ./@_[0] @_[1]";
 		print "\n";
@@ -123,6 +137,8 @@ foreach (@lines) {
 	}
 }
 
-
-print color('reset');
-print "\n";
+print
+		color ("bold green")
+	. "👌  done!"
+	. color('reset')
+	. "\n";
