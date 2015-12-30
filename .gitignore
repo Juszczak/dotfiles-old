@@ -13,3 +13,6 @@ tmux/tmux/resurrect
 
 # tmux sessions
 ./tmux/tmux/sessions
+
+# misc
+.DS_Store
