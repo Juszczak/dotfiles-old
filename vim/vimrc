@@ -144,6 +144,10 @@ Plugin 'xolox/vim-misc'
 " https://github.com/xolox/vim-notes
 Plugin 'xolox/vim-notes'
 
+" distraction-free mode
+" https://github.com/junegunn/goyo.vim
+Plugin 'junegunn/goyo.vim'
+
 call vundle#end()
 filetype plugin indent on
 
