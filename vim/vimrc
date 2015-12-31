@@ -90,6 +90,10 @@ Plugin 'gorodinskiy/vim-coloresque'
 " https://github.com/Valloric/YouCompleteMe
 Plugin 'Valloric/YouCompleteMe'
 
+" snippets solution
+" https://github.com/SirVer/ultisnips
+Plugin 'SirVer/ultisnips'
+
 " code formating
 " https://github.com/Chiel92/vim-autoformat
 Plugin 'Chiel92/vim-autoformat'
@@ -244,7 +248,6 @@ set ignorecase
 set hlsearch
 
 " clear search hl
-nnoremap <CR> :noh<CR><CR>
 nnoremap <ESC> :noh<CR>
 
 set viewoptions=
@@ -497,6 +500,18 @@ autocmd FileType nerdtree setlocal nolist
 
 source ~/.vim/config/nerdtree.vim
 
+" ycm
+let g:ycm_use_ultisnips_completer = 1
+
+" ultisnips
+let g:UltiSnipsSnippetsDir=$HOME."/.vim/snipps"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/snipps']
+let g:UltiSnipsEditSplit = "horizontal"
+
+let g:UltiSnipsExpandTrigger = "<c-]>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+
 " semantic hilight
 
 let s:semanticGUIColors = [
@@ -563,4 +578,5 @@ au BufNewFile,bufRead *npmrc set ft=dosini
 
 au BufNewFile,BufRead *gemrc set ft=yaml
 
-au BufNewFile,BufRead *jsx set ft=typescript
+au BufNewFile,BufRead *jsx set ft=javascript
+au BufNewFile,BufRead *tsx set ft=typescript
