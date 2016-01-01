@@ -114,9 +114,11 @@ Plugin 'jaxbot/semantic-highlight.vim'
 " https://github.com/nathanaelkane/vim-indent-guides
 Plugin 'nathanaelkane/vim-indent-guides'
 
-" match xml tags
-" https://github.com/gregsexton/MatchTag
-" Plugin 'gregsexton/MatchTag'
+" auto-close html tags
+" https://github.com/alvan/vim-closetag
+Plugin 'alvan/vim-closetag'
+
+" match html tags
 " https://github.com/Valloric/MatchTagAlways
 Plugin 'Valloric/MatchTagAlways'
 
@@ -165,11 +167,11 @@ imap jj <esc>
 nmap <space><space> /
 
 " move inside wrapped lines
-nnoremap j gj
-nnoremap k gk
+" nnoremap j gj
+" nnoremap k gk
 
 " center cursorline after next search
-nnoremap n nzz
+" nnoremap n nzz
 
 " easier window navigation with hjkl
 nmap <C-h> <C-w>h
@@ -396,7 +398,6 @@ let g:SignatureMarkTextHL = 'SignatureGitGutter(a:lnum)'
 
 " gundo
 " http://sjl.bitbucket.org/gundo.vim/#configuration
-let g:gundo_disable = 0
 let g:gundo_width = 45
 let g:gundo_preview_height = 15
 let g:gundo_right = 1
