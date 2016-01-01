@@ -15,4 +15,4 @@
 0 0 * * *   npm update -g
 
 # vim plugins
-0 0 * * *   vim -c PluginUpdate
+0 0 * * *   vim +PluginUpdate
