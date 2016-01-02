@@ -28,7 +28,8 @@ $seg_2_content = "";
 $seg_3_content = "";
 
 if ($width > 155 and $show_uptime) {
-  $uptime = `uptime | awk -F, '{sub(".*up ",x,\$1);print \$1,\$2}' | sed 's/days  / /'`;
+  $uptime = `uptime | awk -F, '{sub(".*up ",x,\$1);print \$1,\$2}' | sed 's/ days  /:/'`;
+
   $uptime =~ s/^\s+|\s+$//g;
   $seg_1_content = "$uptime";
 } else {
@@ -73,14 +74,7 @@ if ($width > 150 and $show_ip) {
 $host = `hostname -f | awk -F'.' '{print \$1}'`;
 $host =~ s/^\s+|\s+$//g;
 
-if ($width > 120) {
-  $whoami = `whoami`;
-  $whoami =~ s/^\s+|\s+$//g;
-
-  $seg_3_content = "$whoami\@$host";
-} else {
-  $seg_3_content = "$host";
-}
+$seg_3_content = "$host";
 
 $seg_1 = "$seg_1_color $seg_1_content";
 $seg_2 = "$seg_2_sep" .  "$sep_right_default" . "$seg_2_color" .  " $seg_2_content";
