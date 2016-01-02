@@ -1,8 +1,3 @@
-# TODO:
-# init
-# link
-# clean
-
 use strict;
 use warnings;
 
@@ -15,7 +10,7 @@ use Term::ANSIColor;
 print color('bold green');
 print "~/.dotfiles\n";
 print "🏨  safe place for things and stuff ✨\n";
-print "🆒  hi $USER!\n";
+print "🖐  hi $USER!\n";
 
 # variables
 # 	scalar  $
@@ -24,6 +19,8 @@ print "🆒  hi $USER!\n";
 
 my $local_dotfile = "$PWD/Dotfile";
 my $global_dotfile = "/Users/$USER/Dotfile";
+
+my $backup = 1;
 
 # copy ($local_dotfile, $global_dotfile)
 # 	or die "Creating Dotfile failed: $!";
@@ -55,28 +52,46 @@ sub link_dotfile {
 			-> in ( '.' );
 
 	if (@local_path > 0) {
-		my $local_path = $local_path[0];
-		my $user_path = "/Users/$USER/.$file_name";
-
-		print
-				"➡️  linking "
-			. color ('bold cyan')
-			. "$local_path"
-			. color ('reset')
-			. " to "
-			. color ('bold cyan')
-			. "$user_path"
-			. color ('reset');
+		my $local_path = "$PWD/$local_path[0]";
+		my $user_path = "$HOME/.$file_name";
 
 		if (-e $user_path) {
+			my $already_linked = 0;
+			my $existing_link = "";
+
+			$existing_link = readlink($user_path);
+
+			if (not $!) {
+				if ($existing_link eq $local_path) {
+					print color("bold green") .
+					"✅  already linked: $user_path\n";
+					$already_linked = 1;
+				}
+			} else {
+				print
+					color ("bold yellow") .
+					"\n⚠️  file $user_path exists";
+			}
+
+			if ($backup) {
+				if (not $already_linked) {
+					# backup_file ($user_path);
+				}
+			} else {
+				# `rm $user_path`;
+			}
+		} else {
 			print
-					color ("bold yellow")
-				. "\n⚠️  file $user_path exists";
-
-			backup_file ($user_path);
+					"➡️  linking "
+				. color ('bold cyan')
+				. "$local_path"
+				. color ('reset')
+				. " to "
+				. color ('bold cyan')
+				. "$user_path"
+				. color ('reset');
+			link_file ($local_path, $user_path);
 		}
-
-		link_file ($local_path, $user_path);
 	}
 	else {
 		print
@@ -93,14 +108,10 @@ sub link_dotfile {
 	}
 
 	sub link_file {
-		$local_path = $_[0];
-		$user_path = $_[1];
+		my $local_path = $_[0];
+		my $user_path = $_[1];
 
-		print
-			color("reset")
-			. "linking";
-
-		# $symlink_created = eval { symlink(, ""); 1 };
+		my $symlink_created = symlink($local_path, $user_path);
 
 		if ($symlink_created == 1) {
 			print
@@ -110,7 +121,7 @@ sub link_dotfile {
 				. color ("reset");
 		}
 		else {
-			print "error linking $user_path :("
+			print color("red bold") . "\n⛔️  $user_path not linked"
 		}
 		# cmd
 		# print "ln -s ./@_[0] @_[1]";
@@ -125,6 +136,13 @@ foreach (@lines) {
 	my $line = $_;
 
 	if (not $line =~ /^#/) {
+		if ($line =~ /nobackup/) {
+			$backup = 0;
+			print
+				color("red bold") .
+				"⚠️  mad mode set, no backups\n" .
+				color("reset");
+		}
 		if ($line =~ /link/) {
 			my @line = split ' ', $line;
 			my $file_name = $line[1];
