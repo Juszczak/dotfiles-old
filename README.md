@@ -4,51 +4,50 @@
 
 ### things:
 ```
-.                         ⟶ ~/.
-├── ack
-│   └── ackrc             ⟶ ~/.ackrc
-├── bash
-│   ├── bash              ⟶ ~/.bash/
-│   ├── bash_profile      ⟶ ~/.bash_profile
-│   ├── bashrc            ⟶ ~/.bashrc
-│   └── dircolors         ⟶ ~/.dircolors
-├── crontab
-│   └── crontab           ⟶ ~/.crontab
-├── curl
-│   └── curlrc            ⟶ ~/.curlrc
-├── editorconfig
-│   └── editorconfig      ⟶ ~/.editorconfig
-├── gem
-│   └── gemrc             ⟶ ~/.gemrc
-├── git
-│   ├── gitattributes     ⟶ ~/.gitattributes
-│   ├── gitconfig         ⟶ ~/.gitconfig
-│   └── gitignore         ⟶ ~/.gitignore
+.
+├── Dotfile            -> ~/Dotfile
 ├── homebrew
-│   └── Brewfile          ⟶ ~/Brewfile
+│   └── Brewfile       -> ~/Brewfile
+├── ack
+│   └── ackrc          -> ~/.ackrc
+├── bash
+│   ├── bash           -> ~/.bash/
+│   ├── bash_profile   -> ~/.bash_profile
+│   ├── bashrc         -> ~/.bashrc
+│   └── dircolors      -> ~/.dircolors
+├── crontab
+│   └── crontab        -> ~/.crontab
+├── curl
+│   └── curlrc         -> ~/.curlrc
+├── editorconfig
+│   └── editorconfig   -> ~/.editorconfig
+├── gem
+│   └── gemrc          -> ~/.gemrc
+├── git
+│   ├── gitattributes  -> ~/.gitattributes
+│   ├── gitconfig      -> ~/.gitconfig
+│   └── gitignore      -> ~/.gitignore
 ├── input
-│   └── inputrc           ⟶ ~/.inputrc
+│   └── inputrc        -> ~/.inputrc
 ├── npm
-│   └── npmrc             ⟶ ~/.npmrc
+│   └── npmrc          -> ~/.npmrc
 ├── osx
-│   └── osx               ⟶ ~/.osx
+│   └── osx            -> ~/.osx
 ├── rsync
-│   └── rsyncignore       ⟶ ~/.rsyncignore
+│   └── rsyncignore    -> ~/.rsyncignore
 ├── screen
-│   └── screenrc          ⟶ ~/.screenrc
+│   └── screenrc       -> ~/.screenrc
 ├── tmux
-│   ├── tmux              ⟶ ~/.tmux/
-│   └── tmux.conf         ⟶ ~/.tmux.conf
+│   ├── tmux           -> ~/.tmux/
+│   └── tmux.conf      -> ~/.tmux.conf
 ├── vim
-│   ├── vim               ⟶ ~/.vim/
-│   └── vimrc             ⟶ ~/.vimrc
+│   ├── vim            -> ~/.vim/
+│   └── vimrc          -> ~/.vimrc
 └── wget
-    └── wgetrc            ⟶ ~/.wgetrc
+    └── wgetrc         -> ~/.wgetrc
 ```
 
-### stuff:
-
-#### step 1
+### install
 
 ```
 git clone git@github.com:Juszczak/dotfiles.git ~/dotfiles; \
@@ -56,9 +55,4 @@ cd ~/dotfiles; \
 cp ./Dotfile ~/Dotfile; \
 vim ~/Dotfile; \
 perl link.pl
-```
-
-#### step 2
-```
-🎉🎉🎉 Profit 🎉🎉🎉
 ```
