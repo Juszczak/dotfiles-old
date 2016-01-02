@@ -1,27 +1,22 @@
 #!/usr/bin/perl
 
+use Env;
+
 $width = $ARGV[0];
 
 $show_uptime = 1;
 $show_ip = 1;
 
-$color_1 = "colour190"; # #dfff00
-$color_2 = "colour017"; # #00005f
-$color_3 = "colour238"; # #444444
-$color_4 = "colour255"; # #eeeeee
-$color_5 = "colour234"; # #1c1c1c
-$color_6 = "colour085"; # #5fffaf
-
 $sep_right_default = "";
 $sep_right_alt = "";
 
 $seg_1_sep = "";
-$seg_2_sep = "#[fg=$color_3,bg=$color_5]";
-$seg_3_sep = "#[fg=$color_1,bg=$color_3]";
+$seg_2_sep = "#[fg=$TMUX_THEME_COLOR_THIRD,bg=$TMUX_THEME_COLOR_FIFTH]";
+$seg_3_sep = "#[fg=$TMUX_THEME_COLOR_FIRST,bg=$TMUX_THEME_COLOR_THIRD]";
 
-$seg_1_color = "#[fg=$color_6,bg=$color_5]";
-$seg_2_color = "#[fg=$color_4,bg=$color_3]";
-$seg_3_color = "#[fg=$color_2,bg=$color_1]";
+$seg_1_color = "#[fg=$TMUX_THEME_COLOR_SIXTH,bg=$TMUX_THEME_COLOR_FIFTH]";
+$seg_2_color = "#[fg=$TMUX_THEME_COLOR_FOURTH,bg=$TMUX_THEME_COLOR_THIRD]";
+$seg_3_color = "#[fg=$TMUX_THEME_COLOR_SECOND,bg=$TMUX_THEME_COLOR_FIRST]";
 
 $seg_1_content = "";
 $seg_2_content = "";
