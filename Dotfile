@@ -4,13 +4,13 @@
 # adrian@juszczak.io
 # https://git.io/juszczak
 
-backup 0
+# nobackup
 
 link 'ackrc'
 
 link 'bash_profile'
 link 'bashrc'
-link 'bash/'
+# link 'bash/' # dirs not supported yet :/
 link 'dircolors'
 
 link 'crontab'
@@ -19,28 +19,29 @@ link 'curlrc'
 
 link 'editorconfig'
 
-link 'gemrc'
+# link 'gemrc'
 
 link 'gitattributes'
 link 'gitconfig'
 link 'gitignore'
 
-link 'Brewfile'
+# link 'Brewfile' # not supported for now :/
 
 link 'inputrc'
 
-link 'npmrc'
+# link 'npmrc'
 
-unlink 'osx'
+# unlink 'osx'
 
 link 'rsyncignore'
 
-link 'screenrc'
+# link 'screenrc'
 
-link 'tmux/'
+# link 'tmux/'
 link 'tmux.conf'
 
-link 'vim/'
+# link 'vim/'
 link 'vimrc'
 
 link 'wgetrc'
+
