@@ -5,8 +5,10 @@ _*
 *default*
 *example*
 
-# vim plugins
-vim/vim/bundle
+# mutt
+mutt/mutt/accounts
+mutt/mutt/cache
+mutt/mutt/certificates
 
 # tmux plugins
 tmux/tmux/plugins
@@ -16,6 +18,9 @@ tmux/tmux/resurrect
 
 # tmux sessions
 tmux/tmux/sessions
+
+# vim plugins
+vim/vim/bundle
 
 # misc
 .DS_Store
