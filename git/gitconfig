@@ -11,19 +11,23 @@
 [core]
 	editor = vim
 	pager = less -x2
-	excludesfile = /Users/$USER/.gitignore
+	excludesfile = ~/.gitignore
 
 ; shortcuts
 [alias]
-	st = status
-	cm = commit
 	br = branch
+	bv = branch -vv
+	ca = commit --amend --no-edit
 	ch = checkout
-	df = diff
+	cm = commit
 	dc = diff --cached
+	df = diff
 	dt = difftool
-	mt = mergetool
 	lgp = log -p
+	mt = mergetool
+	st = status
+	stat = diff --stat
+	sts = status -s -b
 	who = shortlog -s --
 
 ; merge conflicts
@@ -46,6 +50,9 @@
 ; danger!
 [alias]
 	undo = reset --hard
+
+[color]
+	ui = auto
 
 [credential]
 	helper = osxkeychain
