@@ -1,0 +1,30 @@
+# ~/.muttrc
+# mutt client config file
+# Adrian Juszczak
+# adrian@juszczak.io
+# https://git.io/juszczak
+
+set realname = "Adrian Juszczak"
+set from = `pwsafe io.user0 -q -u`
+
+set imap_user = `pwsafe io.user0 -q -u`
+set imap_pass = `pwsafe io.user0 -q -p`
+
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed = "[Gmail]/Drafts"
+
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+
+set sort = reverse-date-received
+
+# stop asking to move read messages to mbox!
+set move = no
+set imap_keepalive = 900
+
+# colors
+source ~/.mutt/colors
+
+# vim:ft=muttrc
