@@ -29,6 +29,9 @@ link 'gitignore'
 
 link 'inputrc'
 
+# link 'mutt/'
+# link 'muttrc'
+
 # link 'npmrc'
 
 # unlink 'osx'
