@@ -22,5 +22,11 @@ tmux/tmux/sessions
 # vim plugins
 vim/vim/bundle
 
+# vim swapfiles
+vim/vim/swapdir
+
+# vim undotree file
+vim/vim/undodir
+
 # misc
 .DS_Store
