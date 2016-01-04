@@ -240,8 +240,6 @@ set guifont=Sauce\ Code\ Pro:h13
 set noeb vb t_vb=
 set vb t_vb=
 
-set pastetoggle=<F2>
-
 set incsearch
 
 set ignorecase
@@ -250,7 +248,7 @@ set ignorecase
 set hlsearch
 
 " clear search hl
-nnoremap <ESC> :noh<CR>
+nnoremap <ESC> :silent noh<CR>
 
 set viewoptions=
 	\folds,
@@ -264,6 +262,10 @@ set viewoptions=
 
 "  ton of history (default is 20)
 set history=1000
+
+" no duplicated tabs
+set switchbuf=usetab
+set showtabline=1
 
 " no spellchecking by default
 set nospell
@@ -290,10 +292,50 @@ set mousehide
 " sane backspace
 set backspace=indent,eol,start
 
+" set linebreak
+" set wrap
+
+" no annoying ~ files
+set nobackup
+set nowritebackup
+set noswapfile
+
+" persist the undo tree to a file
+set undofile
+
+" dir below will not be auto-created
+set undodir=$HOME/.vim/undodir
+set directory=$HOME/.vim/swapdir
+
+" recursive :find, :grep, etc
+set path=.,**
+
+" remove comment leader when joining lines
+set formatoptions+=j
+
 " indent settings
 set shiftwidth=2
 set tabstop=2
-" set expandtab
+
+" prefer spaces
+set expandtab
+
+set smarttab
+
+" spaces for autoindent
+set shiftwidth=2
+
+" spaces for tab
+set softtabstop=2
+
+" round indents
+set shiftround
+
+" faster macros
+set lazyredraw
+
+" stronger encryption
+set cryptmethod=blowfish2
 
 " line numbers
 set number
@@ -304,13 +346,23 @@ set relativenumber
 " highlight current line
 set cursorline
 
-" no annoying ~ files
-set nobackup
-set nowritebackup
-set noswapfile
-
 " set the file name as terminal title
 set titlestring=%f title
+
+" show typed commands
+set showcmd
+
+" sane horizontal scroll
+set sidescroll=2
+
+" lines from screen edge
+set scrolloff=4
+
+" columns from scren edge
+set sidescrolloff=4
+
+" improved redrawing
+set ttyfast
 
 " mark tabs as dots
 set list  "(+=)
@@ -333,7 +385,6 @@ autocmd BufEnter * lcd %:p:h
 
 " airline
 " :help airline
-" TODO
 let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'dark'
@@ -341,7 +392,6 @@ let g:airline_theme = 'dark'
 " tabline
 " :help airline-tabline
 let g:airline#extensions#tabline#enabled = 1
-" TODO:
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
@@ -357,18 +407,13 @@ let g:airline#extensions#tabline#tab_min_count = 0
 let g:airline#extensions#tabline#show_close_button = 1
 let g:airline#extensions#tabline#close_symbol = 'X'
 
-" fugitive
-" https://github.com/tpope/vim-fugitive
-
 " gitgutter
-" https://github.com/airblade/vim-gitgutter#customisation
 let g:gitgutter_sign_column_always = 0
 let g:gitgutter_max_signs = 1000
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 1
 let g:gitgutter_highlight_lines = 0
 
-" override default signs + - ~
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
@@ -417,15 +462,10 @@ let g:ctrlp_custom_ignore = {
 
 " nerdtree
 
-" open automatically when vim starts up
-"   if no files were specified
+" open on startup without args
 au StdinReadPre * let s:std_in=1
 au VimEnter * if argc() == 0
   \ && !exists("s:std_in") | NERDTree | endif
-
-au bufenter * if (winnr("$") == 1
-  \ && exists("b:NERDTree")
-  \ && b:NERDTree.isTabTree()) | q | endif
 
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
@@ -440,9 +480,13 @@ let g:NERDTreeIgnore = [
 
 " nerdtreetabs
 let g:nerdtree_tabs_open_on_new_tab = 1
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:nerdtree_tabs_open_on_console_startup = 0
+let g:nerdtree_tabs_no_startup_for_diff = 1
+let g:nerdtree_tabs_smart_startup_focus = 1
+let g:nerdtree_tabs_meaningful_tab_names = 1
 
 " nerdtree-git-plugin
-" https://github.com/Xuyuanp/git-nerdtree
 let g:NERDTreeMapNextHunk = "]c"
 let g:NERDTreeMapPrevHunk = "[c"
 let g:NERDTreeUseSimpleIndicator = 0
@@ -475,27 +519,6 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-" let g:DevIconsEnableFoldersOpenClose = 1
-
-" let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {
-"   \
-"   \ }
-
-" let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {
-"   \   'ackrc': '',
-"   \   'bachrc': '',
-"   \   'bash_profile': '',
-"   \   'dircolors': '',
-"   \   'gitconfig': '',
-"   \   'gitignore': '',
-"   \   'brefile': '',
-"   \   'inputrc': '',
-"   \   '': '',
-"   \   'tmux.conf': '',
-"   \   'vimrc': '',
-"   \   '': '',
-"   \   '': ''
-"   \ }
 
 autocmd FileType nerdtree setlocal nolist
 
