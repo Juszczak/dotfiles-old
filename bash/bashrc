@@ -21,40 +21,53 @@ for option in autocd globstar; do
 done;
 
 # set prompt
-prompt=$HOME/.bash/prompt/promptline.sh
+prompt="$HOME/.bash/prompt/promptline.sh"
 if [ -f $prompt ]; then
-  source $prompt
+	source $prompt
 fi
 unset prompt;
 
 # set completions
-completions=$(brew --prefix)/etc/bash_completion
+completions="$(brew --prefix)/etc/bash_completion"
 if [ -f $completions ]; then
-  source $completions
+	source $completions
 fi
 unset completions;
 
+# env vars
+variables="$HOME/.bash/env/variables.sh"
+if [ -f $variables ]; then
+	source $variables
+fi
+
 # set completion for ssh hostnames
-sshconfig=$HOME/.ssh/config
+sshconfig="$HOME/.ssh/config"
 [ -e "$sshconfig" ] && \
-  complete -o "default" -o "nospace" \
-  -W "$(grep "^Host" $sshconfig | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" \
-  scp sftp ssh;
+	complete -o "default" -o "nospace" \
+	-W "$(grep "^Host" $sshconfig | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" \
+	scp sftp ssh;
 unset sshconfig;
 
 # set marks
-marks=$HOME/.bash/marks/marks.sh
+marks="$HOME/.bash/marks/marks.sh"
 if [ -f $marks ]; then
-  source $marks
+	source $marks
 fi
 unset marks;
 
 # set gnu ls
-gls=$HOME/.bash/utils/gls.sh
+gls="$HOME/.bash/utils/gls.sh"
 if [ -f $gls ]; then
-  source $gls
+	source $gls
 fi
 unset gls;
+
+# setup nvm
+nvm="$HOME/.bash/utils/nvm.sh"
+if [ -f $nvm ]; then
+	source $nvm
+fi
+unset nvm
 
 # set vi mode
 set -o vi
