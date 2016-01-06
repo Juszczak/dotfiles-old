@@ -33,6 +33,7 @@ link 'inputrc'
 # link 'muttrc'
 
 # link 'npmrc'
+# link 'nvmrc'
 
 # unlink 'osx'
 
