@@ -66,9 +66,13 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
-" ft icons
+" icons
 " https://github.com/ryanoasis/vim-devicons
 Plugin 'ryanoasis/vim-devicons'
+
+" set cwd to proj root
+" https://github.com/airblade/vim-rooter
+Plugin 'airblade/vim-rooter'
 
 " brackets, parens, quotes, etc
 " https://github.com/jiangmiao/auto-pairs
@@ -85,6 +89,10 @@ Plugin 'tomtom/tcomment_vim'
 " colors preview
 " https://github.com/gorodinskiy/vim-coloresque
 Plugin 'gorodinskiy/vim-coloresque'
+
+" js code analyzer
+" https://github.com/ternjs/tern_for_vim
+Plugin 'ternjs/tern_for_vim'
 
 " completion engine
 " https://github.com/Valloric/YouCompleteMe
@@ -292,7 +300,7 @@ set mousehide
 " sane backspace
 set backspace=indent,eol,start
 
-" set linebreak
+set linebreak
 " set wrap
 
 " no annoying ~ files
@@ -377,9 +385,6 @@ set guioptions-=r
 set guioptions-=L
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-
-" auto set cwd
-autocmd BufEnter * lcd %:p:h
 
 " plugins settings
 
@@ -524,6 +529,40 @@ autocmd FileType nerdtree setlocal nolist
 
 source ~/.vim/config/nerdtree.vim
 
+" tern
+let g:tern#is_show_argument_hints_enabled = 1
+
+fun BindTern()
+  " jump to definition
+  nmap tdef :TernDef<CR>
+
+  " preview definition
+  nmap tdp :TernDefPreview<CR>
+
+  " open def in split
+  nmap tds :TernDefSplit<CR>
+
+  " open def in new tab
+  nmap tdt :TernDefTab<CR>
+
+  " show doc
+  nmap tdoc :TernDoc<CR>
+
+  " open doc in browser
+  nmap tdb :TernDocBrowse<CR>
+
+  " preview refs
+  nmap tref :TernRefs<CR>
+
+  " rename
+  nmap tren :TernRename<CR>
+
+  " type
+  nmap ttp :TernType<CR>
+endfun
+
+au BufNewFile,BufRead *.js call BindTern()
+
 " ycm
 let g:ycm_use_ultisnips_completer = 1
 
@@ -532,9 +571,12 @@ let g:UltiSnipsSnippetsDir=$HOME."/.vim/snipps"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/snipps']
 let g:UltiSnipsEditSplit = "horizontal"
 
-let g:UltiSnipsExpandTrigger = "<c-]>"
+let g:UltiSnipsExpandTrigger = "<c-a>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+
+" rooter
+let g:rooter_silent_chdir = 1
 
 " semantic hilight
 
