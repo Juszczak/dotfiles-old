@@ -459,11 +459,9 @@ let g:gundo_playback_delay = 60
 " ctrlp
 " https://github.com/kien/ctrlp.vim#basic-options
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](node_modules|bower_components|lib|dist|public|img)|(\.(git|svn))$',
-  \ 'file': '\v\.(exe|so|dll|ico|png|jpg|jpeg|gif)$',
-  \ 'link': '',
-  \ }
+
+" ignore files from gitignore
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " nerdtree
 
