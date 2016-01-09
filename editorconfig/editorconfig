@@ -17,3 +17,4 @@ trim_trailing_whitespace = true
 [*vimrc]
 # due to `set listchars` issue in vimrc
 trim_trailing_whitespace = false
+indent_style = space
