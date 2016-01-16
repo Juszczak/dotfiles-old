@@ -69,5 +69,12 @@ if [ -f $nvm ]; then
 fi
 unset nvm
 
+# setup android sdk
+android_sdk="$HOME/.bash/utils/android.sh"
+if [ -f $android_sdk ]; then
+	source $android_sdk
+fi
+unset android_sdk
+
 # set vi mode
 set -o vi
