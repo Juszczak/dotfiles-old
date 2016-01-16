@@ -86,6 +86,10 @@ Plugin 'tpope/vim-surround'
 " https://github.com/tomtom/tcomment_vim
 Plugin 'tomtom/tcomment_vim'
 
+" emacs-like narrow regions
+" https://github.com/chrisbra/NrrwRgn
+Plugin 'chrisbra/NrrwRgn'
+
 " colors preview
 " https://github.com/gorodinskiy/vim-coloresque
 Plugin 'gorodinskiy/vim-coloresque'
