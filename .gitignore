@@ -19,8 +19,8 @@ tmux/tmux/resurrect
 # tmux sessions
 tmux/tmux/sessions
 
-# vim plugins
-vim/vim/bundle
+# vim plugins cache
+vim/vim/bundle/.vundle
 
 # vim swapfiles
 vim/vim/swapdir
