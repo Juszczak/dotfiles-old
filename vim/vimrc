@@ -414,7 +414,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 let g:airline#extensions#tabline#tab_min_count = 0
 let g:airline#extensions#tabline#show_close_button = 1
-let g:airline#extensions#tabline#close_symbol = 'X'
+let g:airline#extensions#tabline#close_symbol = '×'
 
 " gitgutter
 let g:gitgutter_sign_column_always = 0
