@@ -25,6 +25,7 @@ brew 'bash'
 brew 'git'
 brew 'reattach-to-user-namespace'
 brew 'tmux'
+brew 'nvm'
 
 # langs
 brew 'erlang'
