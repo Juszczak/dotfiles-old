@@ -8,4 +8,45 @@ color status       color238        color190
 color tilde        blue            default
 color tree         red             default
 
+color index   green               default     ~p      # i am to/cc
+color index   cyan                default     ~P      # from me
+color index   brightyellow        default     ~N      # new
+color index   brightyellow        default     ~O      # old
+color index   magenta             default     ~F      # flagged
+color index   blue                default     ~T      # tagged
+color index   red                 default     ~D      # deleted
+color index   blue                default     ~Q      # replied
+color index   magenta             default     ~k      # GPG
+color index   black               cyan        ~v      # collapsed thread
+color index   brightgreen         default     '~f someone@mail.mail' # Separate colours for certain recipients
+
+color header    brightgreen   default ^From:
+color header    brightcyan    default ^To:
+color header    brightcyan    default ^Reply-To:
+color header    brightcyan    default ^Cc:
+color header    brightblue    default ^Subject:
+
+# quote blocks
+color quoted     magenta       default
+color quoted1    cyan          default
+color quoted2    green         default
+color quoted3    magenta       default
+color quoted4    cyan          default
+color quoted5    green         default
+color quoted6    magenta       default
+color quoted7    cyan          default
+
+# urls
+color body       brightred     default "(^|<| )mailto:[^ ]+@[^ ]( |>|$)"
+color body       brightblue    default "(^|<| )(http|https|ftp|file|telnet|news|finger)://[^ ]+( |>|$)"
+
+# *bold*, _underline_, and /italic/
+color body       brightcyan    default "(^| )\\*[^*]+\\*( |$)"
+color body       brightcyan    default "(^| )_[^_]+_( |$)"
+color body       brightcyan    default "(^| )/[^/]+/( |$)"
+
+# smileys, the right way and the backward-ass euro way
+color body       brightmagenta default "(^| )+(|[<>|])[8;:](|[^ ])[)(/|DOPS]( |$)+"
+color body       brightmagenta default "(^| )+[)(/|DOPS](|[^ ])[8;:](|[<>|])( |$)+"
+
 # vim:ft=muttrc
