@@ -648,3 +648,6 @@ au BufNewFile,BufRead *gemrc set ft=yaml
 
 au BufNewFile,BufRead *jsx set ft=javascript
 au BufNewFile,BufRead *tsx set ft=typescript
+
+" remove dot from keywords for all fts
+au BufNewFile,BufRead * set iskeyword-=.
