@@ -1,0 +1,20 @@
+# typescript snippets
+# Adrian Juszczak
+# adrian@juszczak.io
+
+snippet import "import module"
+import { $1 } from '$2';
+endsnippet
+
+snippet component "angular component"
+@Component({
+	directives: [
+	],
+	selector: '$1',
+	template: $2,
+	styles: [$3]
+	})
+export class $4 {
+	$5
+}
+endsnippet
