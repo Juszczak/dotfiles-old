@@ -3,18 +3,24 @@
 # adrian@juszczak.io
 
 snippet import "import module"
-import { $1 } from '$2';
+import {$1} from '$2';
 endsnippet
 
 snippet component "angular component"
 @Component({
-	directives: [
-	],
 	selector: '$1',
 	template: $2,
 	styles: [$3]
-	})
+})
 export class $4 {
 	$5
 }
+endsnippet
+
+snippet common "import ng common directives"
+import {COMMON_DIRECTIVES} from 'angular2/common';
+endsnippet
+
+snippet change "ng change detection strategy"
+changeDetection: ChangeDetectionStrategy.$1
 endsnippet
