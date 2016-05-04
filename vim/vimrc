@@ -19,9 +19,6 @@ filetype off
 " F9 Semantic Highlight
 " F10 Autoformat
 
-" note: vim works only with posix shells
-set shell=/usr/local/bin/bash
-
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
@@ -169,14 +166,26 @@ Plugin 'junegunn/goyo.vim'
 call vundle#end()
 filetype plugin indent on
 
+" map leader
+" let mapleader=','
+let mapleader="\<tab>"
+
+" open current line on GitHub :rocket:
+noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
+
+" maintain Visual Mode after shifting > and <
+vmap < <gv
+vmap > >gv
+
+" move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " space as colon
 nmap <space> :
 
 " escape with jj
 imap jj <esc>
-
-" quick search
-nmap <space><space> /
 
 " move inside wrapped lines
 " nnoremap j gj
@@ -190,6 +199,15 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
+
+" buffer nav
+noremap <leader>z :bp<CR>
+noremap <leader>q :bp<CR>
+noremap <leader>x :bn<CR>
+noremap <leader>w :bn<CR>
+
+" close buffer
+noremap <leader>c :bd<CR>
 
 " chrome-like tab switching
 nmap <D-1> 1gt
@@ -231,6 +249,23 @@ nmap <F9> :SemanticHighlightToggle<CR>
 " autoformat
 noremap <F10> :Autoformat<CR><CR>
 
+" don't move cursor after yank
+" [mark a letter `y` -> yank -> go to `y` mark]
+vnoremap y myy`y
+vnoremap Y myY`y
+
+" jump between home and first non-blank…
+fun! ToggleHome()
+  let pos = getpos('.')
+  execute "normal! ^"
+  if pos == getpos('.')
+    execute "normal! 0"
+  endif
+endfun
+
+" …using easy to reach 0
+nnoremap 0 :call ToggleHome()<CR>
+
 " allow saving of files as sudo when forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
 
@@ -239,25 +274,52 @@ syntax on
 
 colorscheme artefakt
 
+" basics
+
+" encoding
 set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+set bomb
 
-set laststatus=2
+" edit binary files
+set binary
 
-set t_Co=256
+" improved redrawing
+set ttyfast
 
-" https://github.com/powerline/fonts
-set guifont=Sauce\ Code\ Pro:h13
+" all formats
+set fileformats=mac,unix,dos
 
-" disable beeping
-set noeb vb t_vb=
-set vb t_vb=
+" no annoying ~ files
+set nobackup
+set nowritebackup
+set noswapfile
 
+" persist the undo tree to a file
+set undofile
+
+" dir below will not be auto-created
+set undodir=$HOME/.vim/undodir
+set directory=$HOME/.vim/swapdir
+
+" write the old file out when switching between files
+set autowrite
+
+" sane backspace
+set backspace=indent,eol,start
+
+" show typed commands
+set showcmd
+
+" note: vim works only with posix shells
+set shell=/usr/local/bin/bash
+
+" search
 set incsearch
-
 set ignorecase
-
-" highlight last search
 set hlsearch
+set smartcase
 
 " clear search hl
 nnoremap <ESC> :silent noh<CR>
@@ -285,12 +347,6 @@ set nospell
 " buffer switching without saving
 set hidden
 
-" ignore case if search pattern is all lowercase
-set smartcase
-
-" write the old file out when switching between files
-set autowrite
-
 " show matching brackets
 set showmatch
 set matchtime=0
@@ -301,23 +357,8 @@ set mouse=a
 " hide mouse pointer when characters are typed
 set mousehide
 
-" sane backspace
-set backspace=indent,eol,start
-
-set linebreak
-" set wrap
-
-" no annoying ~ files
-set nobackup
-set nowritebackup
-set noswapfile
-
-" persist the undo tree to a file
-set undofile
-
-" dir below will not be auto-created
-set undodir=$HOME/.vim/undodir
-set directory=$HOME/.vim/swapdir
+" set linebreak
+set nowrap
 
 " recursive :find, :grep, etc
 set path=.,**
@@ -325,32 +366,47 @@ set path=.,**
 " remove comment leader when joining lines
 set formatoptions+=j
 
-" indent settings
+" indent
 set shiftwidth=2
 set tabstop=2
-
-" prefer spaces
+set shiftwidth=2
+set softtabstop=2
 set expandtab
-
+set shiftround
 set smarttab
 
-" spaces for autoindent
-set shiftwidth=2
-
-" spaces for tab
-set softtabstop=2
-
-" round indents
-set shiftround
-
 " faster macros
-set lazyredraw
+" set lazyredraw
 
 " stronger encryption
 set cryptmethod=blowfish2
 
+" look and feel
+
+" show 2 lines height status (airline + ex)
+set laststatus=2
+
+set t_Co=256
+
+" https://github.com/powerline/fonts
+set guifont=Sauce\ Code\ Pro:h13
+
+" disable annoying beeping
+set noeb vb t_vb=
+set vb t_vb=
+
+" hide scrollbar in MacVim
+set guioptions-=m  " remove menu bar
+set guioptions-=T  " remove toolbar
+set guioptions-=r  " remove right-hand scroll bar
+set guioptions-=L  " remove left-hand scroll bar
+set guioptions-=M  " extreme: does not source the menu script
+
 " line numbers
 set number
+set ruler
+
+set colorcolumn=140
 
 " relative numbers by default
 set relativenumber
@@ -361,9 +417,6 @@ set cursorline
 " set the file name as terminal title
 set titlestring=%f title
 
-" show typed commands
-set showcmd
-
 " sane horizontal scroll
 set sidescroll=2
 
@@ -373,22 +426,21 @@ set scrolloff=4
 " columns from scren edge
 set sidescrolloff=4
 
-" improved redrawing
-set ttyfast
-
 " mark tabs as dots
 set list  "(+=)
 set listchars=
-  \tab:·\ 
+	\tab:·\ 
 
 " set osx' clipboard
 " set clipboard=unnamed
 
-" hide scrollbar in MacVim
-set guioptions-=r
-set guioptions-=L
-
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+" session management
+let g:session_directory = "~/.vim/session"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
 
 " plugins settings
 
@@ -401,7 +453,8 @@ let g:airline_theme = 'dark'
 " tabline
 " :help airline-tabline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#show_tab_type = 1
@@ -430,11 +483,11 @@ let g:gitgutter_sign_removed_first_line = '~'
 let g:gitgutter_sign_modified_removed = '~'
 
 " signature
-function! SignatureGitGutter(lnum)
+fun! SignatureGitGutter(lnum)
 	let gg_line_state = filter(
-    \ copy(gitgutter#diff#process_hunks(gitgutter#hunk#hunks())),
-    \ 'v:val[0] == a:lnum'
-  \ )
+		\ copy(gitgutter#diff#process_hunks(gitgutter#hunk#hunks())),
+		\ 'v:val[0] == a:lnum'
+	\ )
 
 	if len(gg_line_state) == 0
 		return 'Exception'
@@ -447,7 +500,7 @@ function! SignatureGitGutter(lnum)
 	elseif gg_line_state[0][1] =~ 'removed'
 		return 'GitGutterDelete'
 	endif
-endfunction
+endfun
 let g:SignatureMarkTextHL = 'SignatureGitGutter(a:lnum)'
 
 " gundo
@@ -470,9 +523,9 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 " nerdtree
 
 " open on startup without args
-au StdinReadPre * let s:std_in=1
-au VimEnter * if argc() == 0
-  \ && !exists("s:std_in") | NERDTree | endif
+" au StdinReadPre * let s:std_in=1
+" au VimEnter * if argc() == 0
+"   \ && !exists("s:std_in") | NERDTree | endif
 
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
@@ -481,12 +534,12 @@ let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeMinimalUI = 1
 
 let g:NERDTreeIgnore = [
-  \ '\.DS_Store$',
-  \ '\Icon$',
-  \ '\~$']
+	\ '\.DS_Store$',
+	\ '\Icon$',
+	\ '\~$']
 
 " nerdtreetabs
-let g:nerdtree_tabs_open_on_new_tab = 1
+let g:nerdtree_tabs_open_on_new_tab = 0
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:nerdtree_tabs_open_on_console_startup = 0
 let g:nerdtree_tabs_no_startup_for_diff = 1
@@ -496,27 +549,27 @@ let g:nerdtree_tabs_meaningful_tab_names = 1
 " nerdtree-git-plugin
 let g:NERDTreeMapNextHunk = "]c"
 let g:NERDTreeMapPrevHunk = "[c"
-let g:NERDTreeUseSimpleIndicator = 0
+let g:NERDTreeUseSimpleIndicator = 1
 
 let g:NERDTreeIndicatorMapCustom = {
-  \ "Modified"  : "~",
-  \ "Staged"    : "+",
-  \ "Untracked" : "•",
-  \ "Renamed"   : "→",
-  \ "Unmerged"  : "═",
-  \ "Deleted"   : "-",
-  \ "Dirty"     : "×",
-  \ "Clean"     : "*",
-  \ "Unknown"   : "?"
-  \ }
+	\ "Modified"  : "~",
+	\ "Staged"    : "+",
+	\ "Untracked" : "•",
+	\ "Renamed"   : "→",
+	\ "Unmerged"  : "═",
+	\ "Deleted"   : "-",
+	\ "Dirty"     : "×",
+	\ "Clean"     : "*",
+	\ "Unknown"   : "?"
+	\ }
 
 " devicons
 if exists("g:loaded_webdevicons")
-    call webdevicons#refresh()
+	call webdevicons#refresh()
 endif
 
 let g:webdevicons_enable = 1
-let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_nerdtree = 0
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 let g:webdevicons_enable_ctrlp = 1
@@ -533,37 +586,6 @@ source ~/.vim/config/nerdtree.vim
 
 " tern
 let g:tern#is_show_argument_hints_enabled = 1
-
-fun BindTern()
-  " jump to definition
-  nmap tdef :TernDef<CR>
-
-  " preview definition
-  nmap tdp :TernDefPreview<CR>
-
-  " open def in split
-  nmap tds :TernDefSplit<CR>
-
-  " open def in new tab
-  nmap tdt :TernDefTab<CR>
-
-  " show doc
-  nmap tdoc :TernDoc<CR>
-
-  " open doc in browser
-  nmap tdb :TernDocBrowse<CR>
-
-  " preview refs
-  nmap tref :TernRefs<CR>
-
-  " rename
-  nmap tren :TernRename<CR>
-
-  " type
-  nmap ttp :TernType<CR>
-endfun
-
-au BufNewFile,BufRead *.js call BindTern()
 
 " ycm
 let g:ycm_use_ultisnips_completer = 1
@@ -599,13 +621,13 @@ let s:semanticGUIColors = [
   \ ]
 
 let g:semanticTermColors = [
-  \ 28, 1, 2, 3, 4, 5, 6, 7,
-  \ 25, 9, 10, 34, 12, 13,
-  \ 14, 15, 16, 125, 124, 19
-  \ ]
+	\ 28, 1, 2, 3, 4, 5, 6, 7,
+	\ 25, 9, 10, 34, 12, 13,
+	\ 14, 15, 16, 125, 124, 19
+	\ ]
 
 au FileType coffee,javascript,typescript,python,ruby
-  \ :SemanticHighlight
+	\ :SemanticHighlight
 
 nmap <Leader>s :SemanticHighlight<CR>
 
@@ -625,8 +647,8 @@ let g:tmuxline_preset = 'adrian'
 let g:airline#extensions#tmuxline#enabled = 0
 
 let g:notes_directories = [
-  \ '~/Dropbox/Notes'
-  \ ]
+	\ '~/Dropbox/Notes'
+	\ ]
 
 let g:notes_unicode_enabled = 1
 let g:notes_suffix = '.note'
