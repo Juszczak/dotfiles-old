@@ -1,12 +1,12 @@
 " vim color file
-" 
+"
 " Author: Adrian Juszczak
 " (https://git.io/dotfiles)
 "
 " Note:
 " * some colors from `vitamins.vim` by Henrique C. Alves
 " * some other things from `github.vim` by Anthony Carapetis
-       
+
 set background=dark
 
 set cursorline
@@ -30,6 +30,10 @@ if version >= 700
   hi CursorLine   guibg=#2d2d2d   guifg=NONE      gui=none    ctermbg=236   ctermfg=NONE  cterm=NONE
   hi CursorColumn guibg=#2d2d2d   guifg=NONE      gui=none    ctermbg=236   ctermfg=NONE  cterm=NONE
 endif
+" }}}
+
+" {{{ ruler
+hi ColorColumn    guibg=#303030   guifg=#808080   gui=none    ctermbg=237   ctermfg=242
 " }}}
 
 " {{{ completion menus
