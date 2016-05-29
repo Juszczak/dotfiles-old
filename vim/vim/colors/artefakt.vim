@@ -90,10 +90,10 @@ hi Directory                      guifg=#af875f   gui=none                  cter
 hi Comment												guifg=#808080 	gui=italic                ctermfg=244
 
 hi Constant 											guifg=#008787 	gui=none                  ctermfg=030
-	hi String 											guifg=#008700 	gui=italic                ctermfg=028
-	hi Character										guifg=#008700   gui=italic                ctermfg=028
+	hi String 											guifg=#ff8700 	gui=italic                ctermfg=028
+	hi Character										guifg=#ff8700   gui=italic                ctermfg=028
+	hi Boolean											guifg=#00af00   gui=none                  ctermfg=028
 	hi Number 											guifg=#008787   gui=none                  ctermfg=030
-	hi Boolean											guifg=#008700   gui=none                  ctermfg=028
 	hi Float												guifg=#008700   gui=none                  ctermfg=028
 
 hi Identifier                     guifg=#ff5d28   gui=none                  ctermfg=202
@@ -102,7 +102,7 @@ hi Identifier                     guifg=#ff5d28   gui=none                  cter
 hi Statement                      guifg=#af5f5f   gui=none                  ctermfg=131
   hi Conditional                  guifg=#af5f5f   gui=none                  ctermfg=131
   hi Repeat                       guifg=#af5f5f   gui=none                  ctermfg=131
-  hi Label                        guifg=#af5f5f   gui=none                  ctermfg=131
+  hi Label                        guifg=#af87ff   gui=none                  ctermfg=131
   hi Operator                     guifg=#af5f5f   gui=none                  ctermfg=131
   hi Keyword                      guifg=#cdd129   gui=none                  ctermfg=184
   hi Exception                    guifg=#af5f00   gui=none                  ctermfg=130
