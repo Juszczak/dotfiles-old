@@ -10,14 +10,20 @@ filetype off
 " key bindings
 " F1 HELP
 " F2 Paste Mode
-" F3 NerdTree
-" F4 Gundo
+" F3
+" F4
 " F5 Spell checker
 " F6 Cursor Column
 " F7 Line Wrapping
 " F8 Tabs as chars
 " F9 Semantic Highlight
 " F10 Autoformat
+
+" C-n NERDTreeToggle
+" C-c C-f NERDTreeFind
+" C-p CtrlP
+" C-c C-p CtrlPClearAllCaches
+" C-g GundoToggle
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -54,10 +60,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " tree explorer
 " https://github.com/scrooloose/nerdtree
 Plugin 'scrooloose/nerdtree'
-
-" nerdtree ext
-" https://github.com/jistr/vim-nerdtree-tabs
-Plugin 'jistr/vim-nerdtree-tabs'
 
 " git status in nerdtree
 " https://github.com/Xuyuanp/nerdtree-git-plugin
@@ -201,10 +203,10 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 " buffer nav
-noremap <leader>z :bp<CR>
 noremap <leader>q :bp<CR>
-noremap <leader>x :bn<CR>
 noremap <leader>w :bn<CR>
+noremap <leader>- :bp<CR>
+noremap <leader>= :bn<CR>
 
 " close buffer
 noremap <leader>c :bd<CR>
@@ -225,12 +227,6 @@ nmap <D-0> gt
 
 nmap <F2> :set invpaste paste?<CR>
 
-" toggle nerdtree
-nmap <F3> :NERDTreeTabsToggle<cr>
-
-" toggle gundo
-nmap <F4> :GundoToggle<CR>
-
 " toggle spellchecker
 nmap <F5> :set spell! spell?<Cr>
 
@@ -249,10 +245,24 @@ nmap <F9> :SemanticHighlightToggle<CR>
 " autoformat
 noremap <F10> :Autoformat<CR><CR>
 
+" hex dump
+" http://vim.wikia.com/wiki/Improved_hex_editing
+nmap <F12> :%!xxd<CR>
+
+" toggle nerdtree
+nmap <c-n> :NERDTreeToggle<cr>
+
+nmap <c-c><c-f> :NERDTreeFind<cr>
+
+" toggle gundo
+nmap <c-g> :GundoToggle<cr>
+
+nmap <c-c><c-p> :CtrlPClearAllCaches<cr>
+
 " don't move cursor after yank
-" [mark a letter `y` -> yank -> go to `y` mark]
-vnoremap y myy`y
-vnoremap Y myY`y
+" [mark a letter `y` -> yank -> go to `y` mark -> unmark `y`]
+vnoremap y myy`ymy
+vnoremap Y myY`ymy
 
 " jump between home and first non-blank…
 fun! ToggleHome()
@@ -376,7 +386,7 @@ set shiftround
 set smarttab
 
 " faster macros
-" set lazyredraw
+set lazyredraw
 
 " stronger encryption
 set cryptmethod=blowfish2
@@ -527,6 +537,11 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 " au VimEnter * if argc() == 0
 "   \ && !exists("s:std_in") | NERDTree | endif
 
+" close nerdtree if last
+autocmd BufEnter * if (winnr("$") == 1
+	\ && exists("b:NERDTreeType")
+	\ && b:NERDTreeType == "primary") | q | endif
+
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
@@ -537,14 +552,6 @@ let g:NERDTreeIgnore = [
 	\ '\.DS_Store$',
 	\ '\Icon$',
 	\ '\~$']
-
-" nerdtreetabs
-let g:nerdtree_tabs_open_on_new_tab = 0
-let g:nerdtree_tabs_open_on_gui_startup = 0
-let g:nerdtree_tabs_open_on_console_startup = 0
-let g:nerdtree_tabs_no_startup_for_diff = 1
-let g:nerdtree_tabs_smart_startup_focus = 1
-let g:nerdtree_tabs_meaningful_tab_names = 1
 
 " nerdtree-git-plugin
 let g:NERDTreeMapNextHunk = "]c"
