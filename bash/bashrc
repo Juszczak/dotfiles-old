@@ -62,13 +62,6 @@ if [ -f $gls ]; then
 fi
 unset gls;
 
-# setup nvm
-nvm="$HOME/.bash/utils/nvm.sh"
-if [ -f $nvm ]; then
-	source $nvm
-fi
-unset nvm
-
 # setup android sdk
 android_sdk="$HOME/.bash/utils/android.sh"
 if [ -f $android_sdk ]; then
@@ -76,7 +69,14 @@ if [ -f $android_sdk ]; then
 fi
 unset android_sdk
 
-# pyenv
+# nvm (from homebrew)
+if [ -d "$HOME/.nvm" ]; then
+	NVM_DIR="$HOME/.nvm"
+	export NVM_DIR
+	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+fi
+
+# pyenv (from homebrew)
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # set vi mode
