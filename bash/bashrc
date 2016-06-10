@@ -76,5 +76,8 @@ if [ -f $android_sdk ]; then
 fi
 unset android_sdk
 
+# pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
 # set vi mode
 set -o vi
