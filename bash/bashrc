@@ -69,12 +69,12 @@ alias ls="gls --color=always -F -I \"Icon\""
 alias grep="grep --color=always"
 alias egrep="egrep --color=always"
 
-# setup android sdk
-android_sdk="$HOME/.bash/utils/android.sh"
-if [ -f $android_sdk ]; then
-	source $android_sdk
+# android sdk
+android_home="/usr/local/opt/android-sdk"
+if [ -d $android_home ]; then
+	export ANDROID_HOME=$android_home
 fi
-unset android_sdk
+unset android_home
 
 # nvm (from homebrew)
 if [ -d "$HOME/.nvm" ]; then
