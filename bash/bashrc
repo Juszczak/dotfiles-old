@@ -20,8 +20,8 @@ for option in autocd globstar; do
 	shopt -s "$option" 2> /dev/null;
 done;
 
-# set prompt
-prompt="$HOME/.bash/prompt/promptline.sh"
+# setup prompt
+prompt="$HOME/.bash/promptline.sh"
 if [ -f $prompt ]; then
 	source $prompt
 fi
