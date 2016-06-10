@@ -55,12 +55,19 @@ if [ -f $marks ]; then
 fi
 unset marks;
 
-# set gnu ls
-gls="$HOME/.bash/utils/gls.sh"
-if [ -f $gls ]; then
-	source $gls
+# gnu environmen
+# PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+# hacked gnu ls instead of darwin's one
+dircolors=~/.dircolors
+if [ -f $dircolors ]; then
+	eval `gdircolors -b $dircolors`
 fi
-unset gls;
+unset dircolors
+alias ls="gls --color=always -F -I \"Icon\""
+alias grep="grep --color=always"
+alias egrep="egrep --color=always"
 
 # setup android sdk
 android_sdk="$HOME/.bash/utils/android.sh"
