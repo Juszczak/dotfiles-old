@@ -83,6 +83,9 @@ if [ -d "$HOME/.nvm" ]; then
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 fi
 
+# goroot
+export PATH="$PATH:/usr/local/opt/go/libexec/bin"
+
 # pyenv (from homebrew)
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
