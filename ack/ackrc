@@ -131,7 +131,7 @@
 
 # coffeescript
 # http://coffeescript.org/
---type-add=coffeescript:ext:coffee
+--type-add=coffee:ext:coffee
 
 # c++
 --type-add=cpp:ext:cpp,cc,cxx,m,hpp,hh,h,hxx
