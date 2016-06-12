@@ -14,7 +14,13 @@ indent_style = tab
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+[*.js]
+indent_style = space
+
+[*.json]
+indent_style = space
+
 [*vimrc]
 # due to `set listchars` issue in vimrc
 trim_trailing_whitespace = false
-indent_style = space
+indent_style = tab
