@@ -39,3 +39,7 @@ node_modules
 
 # bower
 bower_components
+
+# vim bundles
+doc/tags
+third_party/ycmd/
