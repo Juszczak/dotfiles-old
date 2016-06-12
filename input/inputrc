@@ -51,6 +51,9 @@ set editing-mode vi
 
 set show-mode-in-prompt on
 
+set vi-cmd-mode-string \e[77m:\e[m
+set vi-ins-mode-string \e[33m•\e[m
+
 # insert as default
 set keymap vi-insert
 
